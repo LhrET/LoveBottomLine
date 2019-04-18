@@ -55,7 +55,7 @@ implements View.OnClickListener,View.OnLongClickListener,AdapterCallback<Data>{
         View root = inflater.inflate(i,viewGroup,false);
         ViewHolder<Data> holder =  onCreateViewHolder(root,i);
         //设置View的Tag为ViewHolder
-        root.setTag(R.id.tag_recycle_holder,holder);
+        root.setTag(R.id.tag_recycler_holder,holder);
 
         root.setOnClickListener(this);
         root.setOnLongClickListener(this);
@@ -133,7 +133,7 @@ implements View.OnClickListener,View.OnLongClickListener,AdapterCallback<Data>{
 
     @Override
     public void onClick(View v) {
-        ViewHolder viewHolder = (ViewHolder)v.getTag(R.id.tag_recycle_holder);
+        ViewHolder viewHolder = (ViewHolder)v.getTag(R.id.tag_recycler_holder);
         if(this.adapterListener!=null){
             int pos = viewHolder.getAdapterPosition();
             this.adapterListener.onItemClick(viewHolder,mDataList.get(pos));
@@ -142,7 +142,7 @@ implements View.OnClickListener,View.OnLongClickListener,AdapterCallback<Data>{
 
     @Override
       public boolean onLongClick(View v) {
-        ViewHolder viewHolder = (ViewHolder)v.getTag(R.id.tag_recycle_holder);
+        ViewHolder viewHolder = (ViewHolder)v.getTag(R.id.tag_recycler_holder);
         if(this.adapterListener!=null){
             int pos = viewHolder.getAdapterPosition();
             this.adapterListener.onItemClick(viewHolder,mDataList.get(pos));
