@@ -1,29 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-    <EditText
-        android:id="@+id/edit_text"
+    <!--Title-->
+    <android.support.design.widget.AppBarLayout
+        android:elevation="@dimen/len_2"
+        android:outlineProvider="bounds"
+        android:id="@+id/appbar"
         android:layout_width="match_parent"
-        android:layout_height="100dp" />
-    <Button
-        android:id="@+id/btn_submit"
-        android:layout_width="120dp"
-        android:layout_height="60dp"
-        android:layout_gravity="center"
-        android:text="submit"/>
-    <TextView
-        android:id="@+id/txt_result"
+        android:layout_height="@dimen/actionBarWithStatusBarSize"
+        tools:targetApi="lollipop">
+        <FrameLayout
+            android:layout_marginTop="@dimen/statusBarSize"
+            android:paddingLeft="@dimen/len_4"
+            android:paddingRight="@dimen/len_4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <net.app.lblpack.common.wiget.Portrait
+                android:scaleType="centerCrop"
+                android:id="@+id/im_portrait"
+                android:foreground="@drawable/ic_touch_menu"
+                android:padding="@dimen/len_4"
+                android:layout_width="@dimen/len_40"
+                android:layout_margin="@dimen/len_4"
+                android:layout_height="@dimen/len_40"
+                android:src="@drawable/default_portrait"/>
+            <TextView
+                android:id="@+id/txt_title"
+                android:textAppearance="@style/TextAppearance.Title"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/app_name"/>
+            <ImageView
+                android:id="@+id/im_search"
+                android:scaleType="centerInside"
+                android:foreground="@drawable/ic_touch_menu"
+                android:tint="?attr/toolbarMenuIconColor"
+                android:padding="@dimen/len_10"
+                android:layout_width="@dimen/len_40"
+                android:layout_height="@dimen/len_40"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_search"
+                android:layout_margin="@dimen/len_4"
+                android:layout_gravity="end|center_vertical"/>
+        </FrameLayout>
+    </android.support.design.widget.AppBarLayout>
+    <!--Content-->
+    <FrameLayout
+        android:id="@+id/lay_container"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-</LinearLayout>
+        android:layout_marginBottom="@dimen/len_52"
+        android:layout_height="match_parent"></FrameLayout>
+    <net.qiujuer.genius.ui.widget.FloatActionButton
+        android:id="@+id/btn_action"
+        android:tint="@color/white"
+        android:src="@drawable/ic_group_add"
+        android:padding="@dimen/len_20"
+        app:gBackgroundColor="@color/pink_100"
+        android:layout_width="@dimen/len_52"
+        android:layout_height="@dimen/len_52"
+        app:layout_anchor="@id/lay_container"
+        app:layout_anchorGravity="bottom|end"
+        android:layout_marginBottom="@dimen/len_68"
+        android:layout_marginEnd="@dimen/len_16"
+        />
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navigation"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/len_52"
+        android:layout_gravity="bottom"></android.support.design.widget.BottomNavigationView>
+</android.support.design.widget.CoordinatorLayout>
