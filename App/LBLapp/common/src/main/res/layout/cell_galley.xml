@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<net.qiujuer.italker.common.widget.SquareLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<net.app.lblpack.common.wiget.SquareLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -36,4 +36,4 @@
         android:visibility="gone"
         app:buttonTint="@color/cb_gallery"
         tools:visibility="visible" />
-</net.qiujuer.italker.common.widget.SquareLayout>
+</net.app.lblpack.common.wiget.SquareLayout>

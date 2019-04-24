@@ -16,6 +16,7 @@ import com.bumptech.glide.request.target.ViewTarget;
 
 import net.app.lblpack.common.app.Activity;
 import net.app.lblpack.common.wiget.Portrait;
+import net.app.lblpack.puch.activities.AccountActivity;
 import net.app.lblpack.puch.frags.main.ActiveFragment;
 import net.app.lblpack.puch.frags.main.ContactFragment;
 import net.app.lblpack.puch.frags.main.ThirtyThreeFragment;
@@ -85,7 +86,7 @@ public class MainActivity extends Activity implements BottomNavigationView.OnNav
     }
     @OnClick(R.id.btn_action)
     void onActionClick(){
-
+        AccountActivity.show(this);
     }
     boolean isFirst = true;
     @Override

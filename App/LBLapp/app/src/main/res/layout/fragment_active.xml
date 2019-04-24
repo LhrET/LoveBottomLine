@@ -5,12 +5,14 @@
     tools:context="net.app.lblpack.puch.frags.main.ActiveFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:textColor="@color/textPrimary"
+
+
+    <net.app.lblpack.common.wiget.GalleryView
+        android:id="@+id/galleryview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Active" />
+        android:padding="1dp">
+
+    </net.app.lblpack.common.wiget.GalleryView>
 
 </FrameLayout>
