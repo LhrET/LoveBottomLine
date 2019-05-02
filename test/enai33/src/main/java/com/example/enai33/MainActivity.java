@@ -11,9 +11,6 @@ import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
-    private String yesterday = "01";
-    private int dayNum = 1;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,17 +20,7 @@ public class MainActivity extends AppCompatActivity {
                     .replace(R.id.container, MainFragment.newInstance())
                     .commitNow();
         }
-        changeDay();
+
     }
 
-    public void changeDay() {
-        TextView tv = findViewById(R.id.day);
-        SimpleDateFormat sdf = new SimpleDateFormat("dd");
-        String d = sdf.format(new Date());
-        if(yesterday != d){
-            this.dayNum += 1;
-            yesterday = d;
-            tv.setText("第" + this.dayNum + "天");
-        }
-    }
 }

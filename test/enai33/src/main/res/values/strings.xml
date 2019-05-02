@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">恩爱33关</string>
     <string name="day">第1天</string>
+    <string name="task">任务任务任务任务任务\n任务任务任务任务任务任务任务任务任务任务</string>
+    <string name="history_title">恩爱33关回顾</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="said">想说的话想说的话想说的话想说的话想说的话想说的话想说的话</string>
 </resources>
