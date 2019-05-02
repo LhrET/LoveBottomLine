@@ -13,7 +13,6 @@ import java.io.IOException;
  * 在这里我们接收一个范型Holder，相当于一个Tag的作用
  * 该范型主要用于回调播放状态时标示对应的目标
  *
- * @author qiujuer Email:qiujuer@live.cn
  * @version 1.0.0
  */
 public class AudioPlayHelper<Holder> implements MediaPlayer.OnErrorListener, MediaPlayer.OnCompletionListener {

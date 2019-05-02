@@ -7,7 +7,14 @@ import java.io.InputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-
+/**
+ * @author qiujuer Email:qiujuer@live.cn
+ * @version 1.0.0
+ *
+ * 对文件或者字符串进行Hash算法，返回MD5值
+ *
+ * GitHub:https://github.com/qiujuer/Genius-Android/blob/steady/steady/library/src/main/java/net/qiujuer/genius/util/HashUtils.java
+ */
 public class HashUtil {
     private static final char HEX_DIGITS[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
             'a', 'b', 'c', 'd', 'e', 'f'};

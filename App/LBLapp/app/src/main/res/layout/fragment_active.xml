@@ -7,12 +7,12 @@
     <!-- TODO: Update blank fragment layout -->
 
 
-    <net.app.lblpack.common.wiget.GalleryView
+    <net.app.lblpack.common.widget.GalleryView
         android:id="@+id/galleryview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="1dp">
 
-    </net.app.lblpack.common.wiget.GalleryView>
+    </net.app.lblpack.common.widget.GalleryView>
 
 </FrameLayout>

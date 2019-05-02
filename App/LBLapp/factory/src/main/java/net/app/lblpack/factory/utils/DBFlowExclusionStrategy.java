@@ -7,7 +7,8 @@ import com.raizlabs.android.dbflow.structure.ModelAdapter;
 /**
  * DBFlow的数据库过滤字段 Gson
  *
-*/
+ * @version 1.0.0
+ */
 public class DBFlowExclusionStrategy implements ExclusionStrategy {
     @Override
     public boolean shouldSkipField(FieldAttributes f) {

@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 
-import net.app.lblpack.common.wiget.convention.PlaceHolderView;
+import net.app.lblpack.common.widget.convention.PlaceHolderView;
 
 import java.util.List;
 
@@ -95,7 +95,7 @@ public abstract class Activity extends AppCompatActivity {
     public void onBackPressed() {
         // 得到当前Activity下的所有Fragment
         @SuppressLint("RestrictedApi")
-        List<android.support.v4.app.Fragment> fragments = getSupportFragmentManager().getFragments();
+        List<Fragment> fragments = getSupportFragmentManager().getFragments();
         // 判断是否为空
         if (fragments != null && fragments.size() > 0) {
             for (Fragment fragment : fragments) {

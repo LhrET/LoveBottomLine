@@ -55,6 +55,8 @@ public class UserFactory {
     public static User update(User user) {
         return Hib.query(session -> {
             session.saveOrUpdate(user);
+            System.out.println(user);
+
             return user;
         });
     }
@@ -97,7 +99,7 @@ public class UserFactory {
             // 如果当前账户之前的设备Id，和需要绑定的不同
             // 那么需要单点登录，让之前的设备退出账户，
             // 给之前的设备推送一条退出消息
-            if (Strings.isNullOrEmpty(user.getPushId())) {
+            if (!Strings.isNullOrEmpty(user.getPushId())) {
                 // 推送一个退出消息
                  PushFactory.pushLogout(user, user.getPushId());
             }

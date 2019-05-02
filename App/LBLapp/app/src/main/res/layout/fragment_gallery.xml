@@ -17,12 +17,12 @@
             app:titleTextAppearance="@style/Base.TextAppearance.AppCompat.Medium"
             app:titleTextColor="@color/textPrimary" />
     </android.support.design.widget.AppBarLayout>
-    <net.app.lblpack.common.wiget.GalleryView
+    <net.app.lblpack.common.widget.GalleryView
         android:id="@+id/galleryview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="1dp"
         android:minHeight="@dimen/len_92"
         android:clipToPadding="false"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+        app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior"/>
 </android.support.design.widget.CoordinatorLayout>

@@ -19,19 +19,18 @@ import java.util.Date;
 /**
  * 上传工具类，用于上传任意文件到阿里OSS存储
  *
+ * @version 1.0.0
  */
 public class UploadHelper {
     private static final String TAG = UploadHelper.class.getSimpleName();
     // 与你们的存储区域有关系
     public static final String ENDPOINT = "https://oss-cn-shanghai.aliyuncs.com";
-
     // 上传的仓库名
     private static final String BUCKET_NAME = "lovebottom";
 
 
     private static OSS getClient() {
         // 明文设置secret的方式建议只在测试时使用，更多鉴权模式请参考后面的`访问控制`章节
-        // https://help.aliyun.com/document_detail/32046.html?spm=a2c4g.11186623.6.900.2ff87ca2WzupMX
         OSSCredentialProvider credentialProvider = new OSSPlainTextAKSKCredentialProvider(
                 "LTAIVEdf5Ck64pya", "HOdznPXncwjj3v2YWYZyrtTWD3ahfK");
         return new OSSClient(Factory.app(), ENDPOINT, credentialProvider);
@@ -47,7 +46,8 @@ public class UploadHelper {
      */
     private static String upload(String objKey, String path) {
         // 构造一个上传请求
-        PutObjectRequest request = new PutObjectRequest(BUCKET_NAME,objKey, path);
+        PutObjectRequest request = new PutObjectRequest(BUCKET_NAME,
+                objKey, path);
 
         try {
             // 初始化上传的Client

@@ -4,7 +4,9 @@ import android.support.v7.util.DiffUtil;
 
 import java.util.List;
 
-
+/**
+ * @version 1.0.0
+ */
 public class DiffUiDataCallback<T extends DiffUiDataCallback.UiDataDiffer<T>> extends DiffUtil.Callback {
     private List<T> mOldList, mNewList;
 

@@ -2,7 +2,7 @@ package net.app.lblpack.puch.frags.main;
 
 
 import net.app.lblpack.common.app.Fragment;
-import net.app.lblpack.common.wiget.GalleryView;
+import net.app.lblpack.common.widget.GalleryView;
 import net.app.lblpack.puch.R;
 
 import butterknife.BindView;
