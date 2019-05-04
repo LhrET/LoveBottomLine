@@ -10,7 +10,6 @@ import java.util.Date;
 import java.util.Objects;
 
 /**
- * @author qiujuer Email:qiujuer@live.cn
  * @version 1.0.0
  */
 @Table(database = AppDatabase.class)

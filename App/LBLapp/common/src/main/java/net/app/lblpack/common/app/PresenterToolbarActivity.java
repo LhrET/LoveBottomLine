@@ -8,7 +8,6 @@ import net.app.lblpack.factory.presenter.BaseContract;
 
 
 /**
- * @author qiujuer Email:qiujuer@live.cn
  * @version 1.0.0
  */
 public abstract class PresenterToolbarActivity<Presenter extends BaseContract.Presenter>

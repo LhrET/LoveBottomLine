@@ -20,8 +20,6 @@ import okhttp3.Response;
 /**
  * 简单的一个文件缓存，实现文件的下载操作
  * 下载成功后回调相应方法
- *
- * @author qiujuer Email:qiujuer@live.cn
  * @version 1.0.0
  */
 public class FileCache<Holder> {

@@ -1,7 +1,6 @@
 package net.app.lblpack.factory.presenter;
 
 /**
- * @author qiujuer Email:qiujuer@live.cn
  * @version 1.0.0
  */
 public class BasePresenter<T extends BaseContract.View> implements BaseContract.Presenter {

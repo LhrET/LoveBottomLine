@@ -21,6 +21,8 @@ import net.qiujuer.genius.ui.compat.UiCompat;
 public class LaunchActivity extends Activity {
     // Drawable
     private ColorDrawable mBgDrawable;
+
+
     // 是否已经得到PushId
     private boolean mAlreadyGotPushReceiverId = false;
 

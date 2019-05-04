@@ -7,7 +7,6 @@ import net.app.lblpack.common.R;
 
 
 /**
- * @author qiujuer Email:qiujuer@live.cn
  * @version 1.0.0
  */
 public abstract class ToolbarActivity extends Activity {

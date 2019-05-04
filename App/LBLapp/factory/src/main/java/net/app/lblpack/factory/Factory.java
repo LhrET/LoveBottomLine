@@ -24,25 +24,8 @@ import net.app.lblpack.factory.utils.DBFlowExclusionStrategy;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
-//import net.qiujuer.italker.common.app.Application;
-//import net.qiujuer.italker.factory.data.DataSource;
-//import net.qiujuer.italker.factory.data.group.GroupCenter;
-//import net.qiujuer.italker.factory.data.group.GroupDispatcher;
-//import net.qiujuer.italker.factory.data.message.MessageCenter;
-//import net.qiujuer.italker.factory.data.message.MessageDispatcher;
-//import net.qiujuer.italker.factory.data.user.UserCenter;
-//import net.qiujuer.italker.factory.data.user.UserDispatcher;
-//import net.qiujuer.italker.factory.model.api.PushModel;
-//import net.qiujuer.italker.factory.model.api.RspModel;
-//import net.qiujuer.italker.factory.model.card.GroupCard;
-//import net.qiujuer.italker.factory.model.card.GroupMemberCard;
-//import net.qiujuer.italker.factory.model.card.MessageCard;
-//import net.qiujuer.italker.factory.model.card.UserCard;
-//import net.qiujuer.italker.factory.persistence.Account;
-//import net.qiujuer.italker.factory.utils.DBFlowExclusionStrategy;
 
 /**
- * @author qiujuer Email:qiujuer@live.cn
  * @version 1.0.0
  */
 public class Factory {

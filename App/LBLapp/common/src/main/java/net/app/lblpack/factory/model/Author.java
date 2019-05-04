@@ -3,7 +3,6 @@ package net.app.lblpack.factory.model;
 /**
  * 基础用户接口
  *
- * @author qiujuer Email:qiujuer@live.cn
  * @version 1.0.0
  */
 public interface Author {

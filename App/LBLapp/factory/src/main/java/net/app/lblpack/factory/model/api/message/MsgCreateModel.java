@@ -9,7 +9,6 @@ import java.util.Date;
 import java.util.UUID;
 
 /**
- * @author qiujuer Email:qiujuer@live.cn
  * @version 1.0.0
  */
 public class MsgCreateModel {

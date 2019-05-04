@@ -31,6 +31,7 @@ import net.qiujuer.genius.ui.widget.FloatActionButton;
 import java.util.Objects;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 public class MainActivity extends Activity
         implements BottomNavigationView.OnNavigationItemSelectedListener,
@@ -120,8 +121,27 @@ public class MainActivity extends Activity
         mPortrait.setup(Glide.with(this), Account.getUser());
     }
 
+    @OnClick(R.id.im_portrait)
+    void onPortraitClick() {
+        PersonalActivity.show(this, Account.getUserId());
+    }
 
-
+    @OnClick(R.id.im_search)
+    void onSearchMenuClick() {
+        int type = SearchActivity.TYPE_USER;
+        SearchActivity.show(this, type);
+    }
+    @OnClick(R.id.btn_action)
+    void onActionClick() {
+        // 如果是group 33
+        if (Objects.equals(mNavHelper.getCurrentTab().extra, R.string.title_group)) {
+            // 打开群创建界面
+           // GroupCreateActivity.show(this);
+        } else {
+            // 如果是其他，都打开添加用户的界面
+            SearchActivity.show(this, SearchActivity.TYPE_USER);
+        }
+    }
     /**
      * 当我们的底部导航被点击的时候触发
      *

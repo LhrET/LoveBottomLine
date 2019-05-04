@@ -18,20 +18,8 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-//import net.qiujuer.italker.factory.Factory;
-//import net.qiujuer.italker.factory.R;
-//import net.qiujuer.italker.factory.data.DataSource;
-//import net.qiujuer.italker.factory.model.api.RspModel;
-//import net.qiujuer.italker.factory.model.api.account.AccountRspModel;
-//import net.qiujuer.italker.factory.model.api.account.LoginModel;
-//import net.qiujuer.italker.factory.model.api.account.RegisterModel;
-//import net.qiujuer.italker.factory.model.db.User;
-//import net.qiujuer.italker.factory.net.Network;
-//import net.qiujuer.italker.factory.net.RemoteService;
-//import net.qiujuer.italker.factory.persistence.Account;
 
 /**
- * @author qiujuer Email:qiujuer@live.cn
  * @version 1.0.0
  */
 public class AccountHelper {
@@ -95,7 +83,7 @@ public class AccountHelper {
             this.callback = callback;
         }
 
-        @Override                      
+        @Override
         public void onResponse(Call<RspModel<AccountRspModel>> call,
                                Response<RspModel<AccountRspModel>> response) {
             // 请求成功返回
@@ -108,23 +96,7 @@ public class AccountHelper {
                 User user = accountRspModel.getUser();
                 DbHelper.save(User.class, user);
 
-                // 第一种，之间保存
-                //user.save();
-                /*
-                // 第二种通过ModelAdapter
-                FlowManager.getModelAdapter(User.class)
-                        .save(user);
 
-                // 第三种，事务中
-                DatabaseDefinition definition = FlowManager.getDatabase(AppDatabase.class);
-                definition.beginTransactionAsync(new ITransaction() {
-                    @Override
-                    public void execute(DatabaseWrapper databaseWrapper) {
-                        FlowManager.getModelAdapter(User.class)
-                                .save(user);
-                    }
-                }).build().execute();
-                */
                 // 同步到XML持久化中
                 Account.login(accountRspModel);
 

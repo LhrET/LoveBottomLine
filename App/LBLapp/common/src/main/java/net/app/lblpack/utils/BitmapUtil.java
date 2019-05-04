@@ -21,7 +21,6 @@ import static net.app.lblpack.utils.StreamUtil.close;
 /**
  * Bitmap 工具类
  *
- * @author qiujuer Email:qiujuer@live.cn
  * @version 1.0.0
  */
 public final class BitmapUtil {

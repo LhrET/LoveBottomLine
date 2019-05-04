@@ -23,9 +23,9 @@ import java.util.logging.Logger;
  * @version 1.0.0
  */
 public class PushDispatcher {
-    private static final String appId = "Rr51sROK4B8FXbq0TUjAF5";
-    private static final String appKey = "eurxTdqHECAKgc7s4xtUe9";
-    private static final String masterSecret = "2zqRh5hMIY93LBqVlBtsi";
+    private static final String appId = "1GUstWS3O08cTl5nqjWBk2";
+    private static final String appKey = "JXIUr5bA6D6hdXmLVRcMx1";
+    private static final String masterSecret = "929v1C8RBP8RxsvydJBeR8";
     private static final String host = "http://sdk.open.api.igexin.com/apiex.htm";
 
     private final IGtPush pusher;

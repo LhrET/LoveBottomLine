@@ -6,7 +6,6 @@ import net.app.lblpack.factory.presenter.BaseContract;
 
 
 /**
- * @author qiujuer Email:qiujuer@live.cn
  * @version 1.0.0
  */
 public abstract class PresenterFragment<Presenter extends BaseContract.Presenter> extends Fragment
