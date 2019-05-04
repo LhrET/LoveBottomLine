@@ -1,10 +1,24 @@
 <resources>
     <string name="app_name">恩爱33关</string>
-    <string name="day">第1天</string>
-    <string name="task">任务任务任务任务任务\n任务任务任务任务任务任务任务任务任务任务</string>
+    <string name="day">第0天</string>
+    <string name="task">任务任务任务任务任务\n任务任务任</string>
     <string name="history_title">恩爱33关回顾</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="said">想说的话想说的话想说的话想说的话想说的话想说的话想说的话</string>
+    <string name="said">想说的话想说的话想说的话想说的话想</string>
+    <string-array name="task_array">
+        <item>给对方带一顿早餐</item>
+        <item>去DIY蛋糕</item>
+        <item>去吃一顿下午茶</item>
+        <item>去公园野餐</item>
+        <item>深情对视一分钟</item>
+        <item>看一场深夜电影</item>
+        <item>逛科技馆/博物馆</item>
+        <item>和ta一起画画</item>
+        <item>和ta一起运动</item>
+        <item>和ta一起安静听完一个歌单</item>
+        <item>窝在一起看一部温馨的电影</item>
+        <item>做饭给对方吃</item>
+        <item>去游乐园玩一天</item>
+        <item>给对方唱一首ta喜欢的歌</item>
+        <item>和ta一起跑步</item>
+    </string-array>
 </resources>

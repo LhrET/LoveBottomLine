@@ -10,82 +10,68 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.enai33.Method.AssetsMethod;
+import com.example.enai33.Method.FileMethod;
 import com.example.enai33.R;
+import com.example.enai33.bean.User;
+
+import java.util.Date;
 
 public class MainFragment extends Fragment {
 
     private MainViewModel mViewModel;
-    private boolean flage = true; //是否开启33关
-    private boolean flage_finish = false;  //当天任务是否完成
+    private User user;
 
-    public boolean isFlage() {
-        return flage;
+    public User getUser() {
+        return user;
     }
 
-    public void setFlage(boolean flage) {
-        this.flage = flage;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public boolean isFlage_finish() {
-        return flage_finish;
-    }
-
-    public void setFlage_finish(boolean flage_finish) {
-        this.flage_finish = flage_finish;
-    }
-
-    public static MainFragment newInstance() {
-        return new MainFragment();
-    }
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public static MainFragment newInstance(User u){
+        MainFragment fm = new MainFragment();
+        fm.setUser(u);
+        return fm;
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View view;
-        if(isFlage()) {
-            //开启恩爱33关
-            if(isFlage_finish()) {
-                //已完成当天任务
-                view = inflater.inflate(R.layout.finish_fragment, container, false);
-            }else {
-                //未完成当天任务
-                view = inflater.inflate(R.layout.main_fragment, container, false);
-                Button input = view.findViewById(R.id.input);
-                input.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        FragmentManager fm = getActivity().getSupportFragmentManager();
-                        fm.beginTransaction()
-                                .replace(R.id.fragment, new InputFragment())
-                                .commit();
-                    }
-                });
+        final User u = this.getUser();
+        View view = inflater.inflate(R.layout.main_fragment, container, false);
+        Button input = view.findViewById(R.id.input);
+        TextView dayNum = view.findViewById(R.id.day);
+        TextView task = view.findViewById(R.id.task);
+
+        //根据当天日期，更改内容
+
+        getUser().changeDayNum(new Date());
+        int day = getUser().getDayNum();
+        String[] arr = getResources().getStringArray(R.array.task_array);
+        int len = arr.length;
+        int random = (int)(Math.random() * (len - 1));
+        Toast.makeText(getActivity(), random + " and " + len, Toast.LENGTH_LONG).show();
+
+        task.setText(arr[random]);
+        dayNum.setText("第" + day + "关");
+        FileMethod.writeLineFile("dailyTask.txt",arr[random]);
+
+        input.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fm = getActivity().getSupportFragmentManager();
+                fm.beginTransaction()
+                        .detach(MainFragment.this)
+                        .replace(R.id.fragment, InputFragment.newInstance(u))
+                        .commit();
             }
-
-        } else {
-            // 未开启
-            view = inflater.inflate(R.layout.index, container, false);
-            ImageButton start = view.findViewById(R.id.start);
-            start.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    setFlage(true);
-                    FragmentManager fm = getActivity().getSupportFragmentManager();
-                    fm.beginTransaction()
-                            .replace(R.id.fragment, new MainFragment())
-                            .commit();
-                }
-            });
-        }
-
+        });
         return view;
     }
 
@@ -96,7 +82,5 @@ public class MainFragment extends Fragment {
 
         // TODO: Use the ViewModel
     }
-
-
 
 }

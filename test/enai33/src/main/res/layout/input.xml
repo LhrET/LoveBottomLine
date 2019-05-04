@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/input_Layout"
-    android:background="#EAEAEA"
+    android:background="@mipmap/beijing2"
     android:padding="16dp">
     <RelativeLayout
         android:layout_width="match_parent"
@@ -13,13 +13,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:background="#FFFFFF"
+            android:background="#9FFFFFFF"
             android:padding="10dp"
             android:lines="10"
-            android:text="说点什么吧..."
+            android:hint="说点什么吧..."
             android:gravity="top"
             android:inputType="textMultiLine"
-            android:textColor="#615E5E"/>
+          />
 
         <LinearLayout
             android:id="@+id/tianjia"
@@ -27,7 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/text"
-            android:background="#FFFFFF"
+            android:background="#99FFFFFF"
             android:padding="8dp"
             android:layout_marginBottom="20dp">
             <ImageButton
