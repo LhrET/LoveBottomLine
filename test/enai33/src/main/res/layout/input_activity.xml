@@ -28,8 +28,9 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/text"
             android:background="#99FFFFFF"
-            android:padding="8dp"
-            android:layout_marginBottom="20dp">
+            android:padding="10dp"
+
+            >
             <ImageButton
                 android:id="@+id/pic"
                 android:layout_width="wrap_content"
@@ -48,11 +49,12 @@
             android:id="@+id/finish"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tianjia"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="16dp"
             android:text="提交"
             android:textColor="#FFFFFF"
             android:textSize="26dp"
-            android:background="#FA80BF"
+            android:background="#F5F884C0"
             android:padding="10dp"
             />
     </RelativeLayout>

@@ -17,6 +17,13 @@ import java.util.ArrayList;
 
 public class FileMethod {
 
+    public static void removeFile(String filename) {
+        File file = new File(Environment.getExternalStorageDirectory(),filename);
+        if(file.exists()) {
+            file.delete();
+        }
+    }
+
     public static String readLastLineFile(String filename){
         File file = new File(Environment.getExternalStorageDirectory(),filename);
         ArrayList<String> arrayList = new ArrayList<>();
@@ -42,6 +49,35 @@ public class FileMethod {
         String saidArray = arrayList.get(arrayList.size()-1);
         return saidArray;
     }
+
+
+    public static String[] readAllFile(String filename){
+        File file = new File(Environment.getExternalStorageDirectory(),filename);
+        ArrayList<String> arrayList = new ArrayList<>();
+        try {
+            FileInputStream fis = new FileInputStream(file);
+            InputStreamReader isr = new InputStreamReader(fis,"UTF-8");
+            BufferedReader br = new BufferedReader(isr);
+
+            String line;
+            while((line = br.readLine()) != null) {
+                arrayList.add(line);
+            }
+            br.close();
+            isr.close();
+            fis.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        int len = arrayList.size();
+        String[] saidArray = arrayList.toArray(new String[len]);
+        return saidArray;
+    }
+
 
     public static void writeLineFile(String filename, String str){
         File file = new File(Environment.getExternalStorageDirectory(),filename);

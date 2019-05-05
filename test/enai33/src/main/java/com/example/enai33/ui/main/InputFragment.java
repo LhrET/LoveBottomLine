@@ -39,7 +39,7 @@ public class InputFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.input, container, false);
+        View view = inflater.inflate(R.layout.input_activity, container, false);
         ImageButton ib = view.findViewById(R.id.pic);
         Button input = view.findViewById(R.id.finish);
         final EditText etext = view.findViewById(R.id.text);
@@ -47,7 +47,7 @@ public class InputFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 //添加图片
-                Toast.makeText(getActivity(), "添加图片", Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(), "添加图片", Toast.LENGTH_SHORT).show();
             }
         });
         final User u = this.getUser();
@@ -57,7 +57,7 @@ public class InputFragment extends Fragment {
                 //上传并存储文字和图片...
                 String text = etext.getText().toString();
                 if(text.equals("")){
-                    Toast.makeText(getActivity(), "请说点什么吧！", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(), "请说点什么吧！", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 FileMethod.writeLineFile("info.txt", text);

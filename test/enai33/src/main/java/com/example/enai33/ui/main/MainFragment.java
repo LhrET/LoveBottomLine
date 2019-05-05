@@ -1,6 +1,7 @@
 package com.example.enai33.ui.main;
 
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -22,7 +23,6 @@ import java.util.Date;
 
 public class MainFragment extends Fragment {
 
-    private MainViewModel mViewModel;
     private User user;
 
     public User getUser() {
@@ -45,42 +45,56 @@ public class MainFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         final User u = this.getUser();
         View view = inflater.inflate(R.layout.main_fragment, container, false);
-        Button input = view.findViewById(R.id.input);
         TextView dayNum = view.findViewById(R.id.day);
         TextView task = view.findViewById(R.id.task);
+        Button input = view.findViewById(R.id.input);
 
-        //根据当天日期，更改内容
+        String dailyTask;
+        int day = u.getDayNum();
 
-        getUser().changeDayNum(new Date());
-        int day = getUser().getDayNum();
-        String[] arr = getResources().getStringArray(R.array.task_array);
-        int len = arr.length;
-        int random = (int)(Math.random() * (len - 1));
-        Toast.makeText(getActivity(), random + " and " + len, Toast.LENGTH_LONG).show();
+        if(u.isNextDayFlag()) {
+            //如果是第一天或下一天，随机选取任务
+            String[] arr0 = getResources().getStringArray(R.array.task_array_0);
+            String[] arr1 = getResources().getStringArray(R.array.task_array_1);
+            String[] arr2 = getResources().getStringArray(R.array.task_array);
+            int len0 = arr0.length;
+            int len1 = arr1.length;
+            int len2 = arr2.length;
+            int random0 = (int)(Math.random() * (len0 - 1));
+            int random1 = (int)(Math.random() * (len1 - 1));
+            int random2 = (int)(Math.random() * (len2 - 1));
 
-        task.setText(arr[random]);
+            if(day % 3 == 0){
+                dailyTask = arr2[random2];
+            } else {
+                if(u.getSex() == 0){
+                    dailyTask = arr0[random0];
+                } else {
+                    dailyTask = arr1[random1];
+                }
+            }
+
+
+            FileMethod.writeLineFile("dailyTask.txt",dailyTask);
+            u.setNextDayFlag(false);
+        } else{
+            dailyTask = FileMethod.readLastLineFile("dailyTask.txt");
+        }
+
         dayNum.setText("第" + day + "关");
-        FileMethod.writeLineFile("dailyTask.txt",arr[random]);
-
+        task.setText(dailyTask);
         input.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentManager fm = getActivity().getSupportFragmentManager();
-                fm.beginTransaction()
-                        .detach(MainFragment.this)
-                        .replace(R.id.fragment, InputFragment.newInstance(u))
-                        .commit();
+
+                Intent intent = new Intent(getActivity(),InputActivity.class);
+                intent.putExtra("u_dayNum",u.getDayNum());
+                intent.putExtra("u_startDay",u.getStartDate());
+                startActivity(intent);
             }
         });
         return view;
     }
 
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        mViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
-
-        // TODO: Use the ViewModel
-    }
 
 }
