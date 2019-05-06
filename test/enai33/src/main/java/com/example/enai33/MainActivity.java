@@ -74,14 +74,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 if(u.getDayNum() > 33){
                     u.init();
-                    //提示完成33关任务
-                    ImageView img = new ImageView(MainActivity.this);
-                    img.setImageResource(R.drawable.wancheng);
-                    new AlertDialog.Builder(MainActivity.this)
-                            .setTitle("恭喜完成恩爱33关！！！")
-                            .setView(img)
-                            .setPositiveButton("确定", null)
-                            .show();
+
                 }
                 if(u.isStartflag()) {
                     //开启33关

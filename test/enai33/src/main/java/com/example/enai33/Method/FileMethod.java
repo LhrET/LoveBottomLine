@@ -1,5 +1,6 @@
 package com.example.enai33.Method;
 
+import android.graphics.Bitmap;
 import android.os.Environment;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -12,6 +13,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class FileMethod {
 
@@ -96,5 +98,18 @@ public class FileMethod {
         }
     }
 
+    public static void writeBitmap(Bitmap bitmap){
+        String fileName1 = UUID.randomUUID().toString();
+        try {
+            File file = new File( Environment.getExternalStorageDirectory(),fileName1 + ".jpg");
+            FileOutputStream out = new FileOutputStream(file);
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, out);
+            out.flush();
+            out.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
 
 }

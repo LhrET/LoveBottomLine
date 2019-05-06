@@ -1,21 +1,24 @@
 package com.example.enai33.ui.main;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.enai33.MainActivity;
 import com.example.enai33.Method.FileMethod;
+import com.example.enai33.Method.ImageMethod;
 import com.example.enai33.R;
 import com.example.enai33.bean.User;
-
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
 
 public class   FinishFragment extends Fragment {
     private User user;
@@ -48,6 +51,23 @@ public class   FinishFragment extends Fragment {
         String taskStr = FileMethod.readLastLineFile("dailyTask.txt");
         taskText.setText(taskStr);
 
+        if(user.getDayNum() == 33){
+            //提示完成33关任务
+            ImageView img = new ImageView(getActivity());
+            img.setImageResource(R.drawable.wancheng);
+            new AlertDialog.Builder(getActivity())
+                    .setTitle("恭喜完成恩爱33关！！！")
+                    .setMessage("点击历史记录查看33天历史，我们会为您保存长图的哦~")
+                    .setView(img)
+                    .setPositiveButton("确定", null)
+                    .show();
+            View v = inflater.inflate(R.layout.history_fragment, container,false);
+            ListView listView = v.findViewById(R.id.history_list);
+            Bitmap bitmap = ImageMethod.shotListView(listView);
+            FileMethod.writeBitmap(bitmap);
+            Toast.makeText(getActivity(),"长图保存成功",Toast.LENGTH_SHORT).show();
+
+        }
         return view;
     }
 }
