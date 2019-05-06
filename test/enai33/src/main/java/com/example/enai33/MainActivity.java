@@ -59,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
         Button enai = findViewById(R.id.button1);
         Button text = findViewById(R.id.button2);
 
-
         enai.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -97,9 +96,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 } else {
                     //未开启33关
-                    //清空存储文件
-                    FileMethod.removeFile("info.txt");
-                    FileMethod.removeFile("dailyTask.txt");
+
                     getSupportFragmentManager().beginTransaction()
                             .replace(R.id.fragment, IndexFragment.newInstance(u))
                             .commit();

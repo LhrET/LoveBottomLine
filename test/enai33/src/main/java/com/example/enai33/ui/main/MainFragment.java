@@ -64,7 +64,7 @@ public class MainFragment extends Fragment {
             int random1 = (int)(Math.random() * (len1 - 1));
             int random2 = (int)(Math.random() * (len2 - 1));
 
-            if(day % 3 == 0){
+            if(day % 2 == 0){
                 dailyTask = arr2[random2];
             } else {
                 if(u.getSex() == 0){
@@ -74,8 +74,8 @@ public class MainFragment extends Fragment {
                 }
             }
 
-
             FileMethod.writeLineFile("dailyTask.txt",dailyTask);
+            FileMethod.writeLineFile("dayNum.txt","第" + day + "关");
             u.setNextDayFlag(false);
         } else{
             dailyTask = FileMethod.readLastLineFile("dailyTask.txt");

@@ -1,6 +1,5 @@
 package com.example.enai33.Method;
 
-import android.content.res.AssetManager;
 import android.os.Environment;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -9,7 +8,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;

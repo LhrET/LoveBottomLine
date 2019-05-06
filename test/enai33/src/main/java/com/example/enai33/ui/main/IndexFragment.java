@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
+import com.example.enai33.Method.FileMethod;
 import com.example.enai33.R;
 import com.example.enai33.bean.User;
 
@@ -41,6 +42,11 @@ public class IndexFragment extends Fragment {
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //清空存储文件
+                FileMethod.removeFile("info.txt");
+                FileMethod.removeFile("dailyTask.txt");
+                FileMethod.removeFile("dayNum.txt");
+                //改变user属性
                 u.setNextDayFlag(true);
                 u.setStartflag(true);
                 u.setDayNum(1);

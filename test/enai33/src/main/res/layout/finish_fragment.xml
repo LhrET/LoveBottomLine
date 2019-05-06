@@ -4,58 +4,78 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/finish_layout"
-    android:padding="8dp"
-    android:background="@mipmap/beijing1">
+    android:background="@mipmap/beijing3">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/day_text"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/part1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:gravity="center"
-            android:paddingTop="20dp"
-            android:paddingBottom="20dp"
-            android:text="@string/day"
-            android:textSize="35dp"
-            android:textStyle="bold" />
+            android:orientation="vertical"
+            android:background="#A6FFFFFF"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginBottom="10dp"
+            android:layout_gravity="top"
+            >
 
-        <TextView
-            android:id="@+id/task_text"
+            <TextView
+                android:id="@+id/day_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:padding="10dp"
+                android:gravity="center"
+                android:text="@string/day"
+                android:textSize="34dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/task_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:gravity="center"
+                android:lineSpacingExtra="5dp"
+                android:padding="10dp"
+                android:text="@string/task"
+                android:textSize="22dp" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:gravity="center"
-            android:lineSpacingExtra="5dp"
-            android:padding="10dp"
-            android:text="@string/task"
-            android:textSize="22dp" />
+            android:orientation="vertical"
+            android:background="#A6FFFFFF"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_gravity="bottom"
+            android:layout_below="@id/part1">
 
-        <ImageView
-            android:id="@+id/picture_imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="60dp"
-            android:padding="10dp"
-            android:src="@mipmap/tijiao" />
+            <ImageView
+                android:id="@+id/picture_imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:adjustViewBounds="true"
+                android:maxWidth="220dp"
+                android:maxHeight="220dp"
+                android:src="@drawable/wancheng" />
+            <TextView
+                android:id="@+id/said_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="@string/said"
+                android:textSize="24dp" />
 
-        <TextView
-            android:id="@+id/said_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="160dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:gravity="center"
-            android:lineSpacingExtra="5dp"
-            android:padding="20dp"
-            android:text="@string/said"
-            android:textSize="22dp" />
-    </LinearLayout>
-
+        </LinearLayout>
+    </RelativeLayout>
 </FrameLayout>
