@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/input_Layout"
+    android:background="@drawable/bg_src_bg"
+    android:padding="16dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <EditText
+            android:textColor="@color/colorPrimary"
+            android:textColorHint="@color/colorPrimary"
+            android:id="@+id/text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:background="#9FFFFFFF"
+            android:padding="10dp"
+            android:lines="10"
+            android:hint="说点什么吧..."
+            android:gravity="top"
+            android:inputType="textMultiLine"
+            />
+
+        <LinearLayout
+            android:id="@+id/tianjia"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text"
+            android:background="#99FFFFFF"
+            android:padding="10dp"
+
+            >
+            <net.app.lblpack.common.widget.InputImageView
+                android:id="@+id/image_input_view"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/tianjiatupian"
+                android:background="#00FFFFFF"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:text="添加图片"
+                android:textSize="18dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="16dp"/>
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/len_28">
+
+            <net.qiujuer.genius.ui.widget.Button
+                android:id="@+id/btn_submit"
+                android:layout_width="190dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:background="@drawable/sel_btn_bg_black_alpha_44"
+                android:text="提交"
+                android:textSize="@dimen/len_16"
+                android:textColor="@color/white"
+                app:gTouchColor="@color/colorAccentAlpha"
+                app:gTouchCornerRadius="22dp"
+                app:gTouchEffect="ripple" />
+
+            <net.qiujuer.genius.ui.widget.Loading
+                android:id="@+id/loading"
+                android:layout_width="@dimen/len_36"
+                android:layout_height="@dimen/len_36"
+                android:layout_gravity="center"
+                app:gAutoRun="false"
+                app:gBackgroundColor="@color/trans"
+                app:gForegroundColor="@color/white"
+                app:gForegroundLineSize="1dp" />
+        </FrameLayout>
+    </RelativeLayout>
+</FrameLayout>

@@ -13,12 +13,18 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
 import net.app.lblpack.common.app.PresenterToolbarActivity;
 import net.app.lblpack.common.widget.PortraitView;
+import net.app.lblpack.factory.data.DataSource;
+import net.app.lblpack.factory.data.helper.LoveHelper;
+import net.app.lblpack.factory.model.api.message.LoveModel;
+import net.app.lblpack.factory.model.card.LoveCard;
 import net.app.lblpack.factory.model.db.User;
+import net.app.lblpack.factory.persistence.Account;
 import net.app.lblpack.factory.presenter.contact.PersonalContract;
 import net.app.lblpack.factory.presenter.contact.PersonalPresenter;
 import net.app.lblpack.puch.R;
@@ -28,7 +34,7 @@ import butterknife.BindView;
 import butterknife.OnClick;
 
 public class PersonalActivity extends PresenterToolbarActivity<PersonalContract.Presenter>
-        implements PersonalContract.View {
+        implements PersonalContract.View , DataSource.Callback<LoveCard> {
     private static final String BOUND_KEY_ID = "BOUND_KEY_ID";
     private String userId;
 
@@ -46,11 +52,15 @@ public class PersonalActivity extends PresenterToolbarActivity<PersonalContract.
     TextView mFollowing;
     @BindView(R.id.btn_say_hello)
     Button mSayHello;
+    @BindView(R.id.im_sex)
+    ImageView mSex;
+
 
     // 关注
     private MenuItem mFollowItem;
     private boolean mIsFollowUser = false;
-
+    private boolean mIsLoveUser = false;
+    private boolean mIsHaveLUser = false;
     public static void show(Context context, String userId) {
         Intent intent = new Intent(context, PersonalActivity.class);
         intent.putExtra(BOUND_KEY_ID, userId);
@@ -92,7 +102,20 @@ public class PersonalActivity extends PresenterToolbarActivity<PersonalContract.
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.action_follow) {
-            // TODO 进行关注操作
+            if(!mIsHaveLUser&&!mIsLoveUser){
+                LoveModel loveModel = new LoveModel(Account.getUserId(),userId,60);
+                LoveHelper.create(loveModel,this);
+            }else if(mIsHaveLUser){
+                Toast.makeText(this,"TA已经有侣伴啦！",Toast.LENGTH_SHORT).show();
+            }else {
+                if(Account.getUser().getSex()==1){
+                    Toast.makeText(this,"你已经有侣伴啦！请不要做渣男！！",Toast.LENGTH_SHORT).show();
+                }
+                if(Account.getUser().getSex()==2){
+                    Toast.makeText(this,"小哥哥随多，请不要贪心哦！",Toast.LENGTH_SHORT).show();
+                }
+
+            }
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -116,12 +139,14 @@ public class PersonalActivity extends PresenterToolbarActivity<PersonalContract.
             return;
 
         // 根据状态设置颜色
-        Drawable drawable = mIsFollowUser ? getResources()
+        Drawable drawable = mIsLoveUser ? getResources()
                 .getDrawable(R.drawable.ic_favorite) :
                 getResources().getDrawable(R.drawable.ic_favorite_border);
         drawable = DrawableCompat.wrap(drawable);
-        DrawableCompat.setTint(drawable, Resource.Color.WHITE);
+        DrawableCompat.setTint(drawable, Resource.Color.RED);
         mFollowItem.setIcon(drawable);
+
+
     }
 
     @Override
@@ -134,6 +159,12 @@ public class PersonalActivity extends PresenterToolbarActivity<PersonalContract.
     public void onLoadDone(User user) {
         if (user == null)
             return;
+        boolean isMan = user.getSex()==1 ? true :false;
+                Drawable drawable2 = getResources().getDrawable(isMan ?
+                R.drawable.ic_sex_man : R.drawable.ic_sex_woman);
+        mSex.setImageDrawable(drawable2);
+        // 设置背景的层级，切换颜色
+        mSex.getBackground().setLevel(isMan ? 0 : 1);
         mPortrait.setup(Glide.with(this), user);
         mName.setText(user.getName());
         mDesc.setText(user.getDesc());
@@ -154,7 +185,29 @@ public class PersonalActivity extends PresenterToolbarActivity<PersonalContract.
     }
 
     @Override
+    public void setLoveStatus(boolean isLove) {
+        mIsLoveUser = isLove;
+    }
+
+    @Override
+    public void setHLoveStatus(boolean isLove) {
+        mIsHaveLUser = isLove;
+    }
+
+    @Override
     protected PersonalContract.Presenter initPresenter() {
         return new PersonalPresenter(this);
+    }
+
+    @Override
+    public void onDataLoaded(LoveCard loveCard) {
+        mIsLoveUser = true;
+        mIsHaveLUser = true;
+        changeFollowItemStatus();
+    }
+
+    @Override
+    public void onDataNotAvailable(int strRes) {
+
     }
 }

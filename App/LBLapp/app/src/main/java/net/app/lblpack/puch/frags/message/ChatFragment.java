@@ -145,7 +145,10 @@ public abstract class ChatFragment<InitModel>
         initEditContent();
 
         // RecyclerView基本设置
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+        linearLayoutManager.setStackFromEnd(true);
+
+        mRecyclerView.setLayoutManager(linearLayoutManager);
         mAdapter = new Adapter();
         mRecyclerView.setAdapter(mAdapter);
         // 添加适配器监听器，进行点击的实现
@@ -267,6 +270,7 @@ public abstract class ChatFragment<InitModel>
 
     @Override
     public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+
     }
 
     @OnClick(R.id.btn_face)

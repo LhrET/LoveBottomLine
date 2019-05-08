@@ -2,9 +2,65 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/bg_active"
     tools:context="net.app.lblpack.puch.frags.main.ActiveFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="100dp"
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:src="@drawable/fenshu"/>
+    <TextView
+        android:id="@+id/txt_fenshu"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="100dp"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:text="100"
+        android:textColor="@color/pink_300"
+        android:textSize="99dp"
+        android:gravity="center"/>
+    <ImageView
+        android:layout_marginTop="220dp"
+        android:layout_marginStart="@dimen/len_60"
+        android:layout_marginEnd="@dimen/len_60"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/xingdong"/>
+    <net.app.lblpack.common.widget.PortraitView
+        android:id="@+id/im_portrait1"
 
+        android:layout_width="79dp"
+        android:layout_height="79dp"
+        android:layout_marginTop="440dp"
+        android:layout_marginStart="@dimen/len_16"
+        app:civ_border_color="@color/white"
+        app:civ_border_width="2dp"
+        tools:src="@drawable/default_holder_add" />
+    <net.app.lblpack.common.widget.PortraitView
+        android:id="@+id/im_portrait2"
+        android:layout_gravity="end"
+        android:layout_width="79dp"
+        android:layout_height="79dp"
+        android:layout_marginTop="440dp"
+        android:layout_marginEnd="@dimen/len_16"
+        app:civ_border_color="@color/white"
+        app:civ_border_width="2dp"
+        tools:src="@drawable/default_holder_add" />
+    <TextView
+        android:id="@+id/txt_active_hidden"
+        android:visibility="invisible"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="@dimen/len_10"
+        android:textSize="@dimen/font_24"
+        android:layout_marginBottom="@dimen/len_100"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:gravity="center"
+        android:text="快去绑定你的另一半吧^-^！"
+        android:textColor="@color/colorPrimary"/>
 
 </FrameLayout>

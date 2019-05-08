@@ -1,0 +1,53 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_login"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="20dp"
+        android:background="#97FFFFFF">
+
+        <TextView
+            android:textColor="@color/colorPrimary"
+            android:id="@+id/day"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="天"
+            android:gravity="center"
+            android:layout_margin="20dp"
+            android:textSize="35dp"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/task"
+            android:textColor="@color/colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="任务"
+            android:textSize="22dp"
+            android:gravity="center_horizontal"
+            android:layout_marginBottom="20dp"
+            android:padding="5dp"
+            android:lineSpacingExtra="5dp"
+
+            />
+    </LinearLayout>
+    <Button
+        android:id="@+id/input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="打卡提交"
+        android:background="#FA80BF"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="60dp"
+        android:layout_gravity="bottom"
+        android:textSize="16dp"
+        android:textColor="#FFFFFF"/>
+
+</FrameLayout>

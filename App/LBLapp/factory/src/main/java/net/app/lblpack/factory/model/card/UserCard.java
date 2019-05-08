@@ -25,9 +25,28 @@ public class UserCard implements Author {
 
     // 我与当前User的关系状态，是否已经关注了这个人
     private boolean isFollow;
-
+    // 我与当前User的关系状态，是否已经关注了这个人
+    private boolean isLove;
+    // 我与当前User的关系状态，是否已经关注了这个人
+    private boolean haveLove;
     // 用户信息最后的更新时间
     private Date modifyAt;
+
+    public boolean isLove() {
+        return isLove;
+    }
+
+    public void setLove(boolean love) {
+        isLove = love;
+    }
+
+    public boolean isHaveLove() {
+        return haveLove;
+    }
+
+    public void setHaveLove(boolean haveLove) {
+        this.haveLove = haveLove;
+    }
 
     public String getId() {
         return id;
@@ -122,6 +141,8 @@ public class UserCard implements Author {
             user.setDesc(desc);
             user.setSex(sex);
             user.setFollow(isFollow);
+            user.setLove(isLove);
+            user.setHaveLove(haveLove);
             user.setFollows(follows);
             user.setFollowing(following);
             user.setModifyAt(modifyAt);

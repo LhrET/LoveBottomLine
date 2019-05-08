@@ -4,16 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context="net.app.lblpack.puch.activities.PersonalActivity">
 
     <ImageView
         android:id="@+id/im_header"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="340dp"
         android:layout_marginBottom="@dimen/len_48"
         android:contentDescription="@string/app_name"
         android:scaleType="centerCrop"
-        android:src="@drawable/default_portrait"
+        android:src="@drawable/persnal_bg"
         app:layout_constraintBottom_toTopOf="@+id/guideline1"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -21,7 +22,7 @@
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:layout_marginLeft="0dp"
         android:layout_marginRight="0dp"
@@ -35,33 +36,38 @@
         android:id="@+id/txt_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/len_16"
-        android:ellipsize="end"
+        android:gravity="center"
+        android:layout_marginTop="335dp"
+        android:layout_marginStart="128dp"
         android:text="@string/app_name"
         android:textColor="@color/black"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        android:textSize="@dimen/len_24"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"/>
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginStart="@dimen/len_36"
+        android:layout_marginEnd="@dimen/len_36"
+        android:background="@color/colorPrimary"
+        android:layout_marginTop="380dp"/>
     <net.app.lblpack.common.widget.PortraitView
         android:id="@+id/im_portrait"
         android:layout_width="96dp"
         android:layout_height="96dp"
-        android:layout_gravity="bottom"
+        android:layout_marginTop="332dp"
         android:layout_marginStart="@dimen/len_16"
         app:civ_border_color="@color/white"
         app:civ_border_width="2dp"
-        app:layout_constraintBottom_toBottomOf="@id/guideline1"
-        app:layout_constraintLeft_toLeftOf="parent"
         tools:src="@drawable/default_portrait" />
-
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
-        android:layout_marginEnd="@dimen/len_16"
-        android:layout_marginTop="@dimen/len_16"
+        android:layout_marginEnd="@dimen/len_36"
+        android:layout_marginTop="380dp"
         android:orientation="horizontal"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/im_header">
@@ -87,11 +93,28 @@
             android:textColor="@color/textPrimary" />
     </LinearLayout>
 
+    <ImageView
+        android:id="@+id/im_sex"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/sel_bg_sex"
+        android:contentDescription="@string/app_name"
+        android:padding="5dp"
+        android:src="@drawable/ic_sex_man"
+        android:tint="@color/white"
+        app:layout_anchor="@+id/im_portrait"
+        app:layout_anchorGravity="end|center"
+        app:layout_constraintBottom_toBottomOf="@+id/im_portrait"
+        app:layout_constraintEnd_toEndOf="@+id/im_portrait" />
     <TextView
         android:id="@+id/txt_desc"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/len_16"
+        android:layout_marginStart="@dimen/len_32"
+        android:layout_marginEnd="@dimen/len_32"
+        android:layout_marginTop="470dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="@color/textPrimary"
         app:layout_constraintLeft_toLeftOf="parent"

@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:background="@drawable/bg_src_tianjin"
+    tools:background="@drawable/bg_register"
     tools:context="net.app.lblpack.puch.frags.account.RegisterFragment">
 
 
@@ -43,8 +43,7 @@
                 android:contentDescription="@string/app_name"/>
             <EditText
                 android:id="@+id/edit_phone"
-                android:layout_width="0dp"
-                android:layout_weight="1"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/len_4"
                 android:layout_marginEnd="@dimen/len_2"
@@ -53,7 +52,8 @@
                 android:inputType="phone"
                 android:paddingTop="@dimen/len_8"
                 android:paddingBottom="@dimen/len_8"
-                android:textAppearance="@color/textPrimary"
+                android:textColor="@color/colorPrimary"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:textColorHint="@color/textSecond"
                 android:textCursorDrawable="@drawable/ic_cursor"
                 android:textSize="@dimen/font_14"/>
@@ -91,17 +91,17 @@
                 android:contentDescription="@string/app_name"/>
             <EditText
                 android:id="@+id/edit_password"
-                android:layout_width="0dp"
-                android:layout_weight="1"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/len_4"
                 android:layout_marginEnd="@dimen/len_2"
                 android:background="@null"
                 android:hint="@string/label_password"
+                android:textColor="@color/colorPrimary"
                 android:inputType="textPassword"
                 android:paddingTop="@dimen/len_8"
                 android:paddingBottom="@dimen/len_8"
-                android:textAppearance="@color/textPrimary"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:textColorHint="@color/textSecond"
                 android:textCursorDrawable="@drawable/ic_cursor"
                 android:textSize="@dimen/font_14"/>
@@ -122,8 +122,7 @@
                 android:contentDescription="@string/app_name"/>
             <EditText
                 android:id="@+id/edit_name"
-                android:layout_width="0dp"
-                android:layout_weight="1"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/len_4"
                 android:layout_marginEnd="@dimen/len_2"
@@ -132,7 +131,8 @@
                 android:inputType="text"
                 android:paddingTop="@dimen/len_8"
                 android:paddingBottom="@dimen/len_8"
-                android:textAppearance="@color/textPrimary"
+                android:textColor="@color/colorPrimary"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:textColorHint="@color/textSecond"
                 android:textCursorDrawable="@drawable/ic_cursor"
                 android:textSize="@dimen/font_14"/>

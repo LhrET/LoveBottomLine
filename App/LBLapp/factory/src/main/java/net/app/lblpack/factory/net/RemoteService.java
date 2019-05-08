@@ -5,8 +5,10 @@ import net.app.lblpack.factory.model.api.RspModel;
 import net.app.lblpack.factory.model.api.account.AccountRspModel;
 import net.app.lblpack.factory.model.api.account.LoginModel;
 import net.app.lblpack.factory.model.api.account.RegisterModel;
+import net.app.lblpack.factory.model.api.message.LoveModel;
 import net.app.lblpack.factory.model.api.message.MsgCreateModel;
 import net.app.lblpack.factory.model.api.user.UserUpdateModel;
+import net.app.lblpack.factory.model.card.LoveCard;
 import net.app.lblpack.factory.model.card.MessageCard;
 import net.app.lblpack.factory.model.card.UserCard;
 
@@ -76,6 +78,19 @@ public interface RemoteService {
     // 发送消息的接口
     @POST("msg")
     Call<RspModel<MessageCard>> msgPush(@Body MsgCreateModel model);
+
+    @POST("love/create")
+    Call<RspModel<LoveCard>> lovecreat(@Body LoveModel model);
+
+    // 用户更新的接口
+    @PUT("love/update")
+    Call<RspModel<LoveCard>> loveupdate(@Body LoveModel model);
+
+    // 用户搜索的接口
+    @GET("love/get")
+    Call<RspModel<LoveCard>> getlove();
+
+
 
 
 }

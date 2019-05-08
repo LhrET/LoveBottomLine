@@ -24,8 +24,9 @@
         <activity
             android:name=".activities.PersonalActivity"
             android:label="@string/title_activity_personal"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
+            android:windowSoftInputMode="stateHidden|adjustResize"
             android:name=".activities.MessageActivity"
             android:label="@string/title_activity_message"
             android:theme="@style/AppTheme.NoActionBar" />

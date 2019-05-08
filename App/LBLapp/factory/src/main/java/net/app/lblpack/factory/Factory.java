@@ -10,6 +10,8 @@ import com.raizlabs.android.dbflow.config.FlowManager;
 
 import net.app.lblpack.common.app.Application;
 import net.app.lblpack.factory.data.DataSource;
+import net.app.lblpack.factory.data.message.LoveCenter;
+import net.app.lblpack.factory.data.message.LoveDispatcher;
 import net.app.lblpack.factory.data.message.MessageCenter;
 import net.app.lblpack.factory.data.message.MessageDispatcher;
 import net.app.lblpack.factory.data.user.UserCenter;
@@ -236,7 +238,9 @@ public class Factory {
     public static MessageCenter getMessageCenter() {
         return MessageDispatcher.instance();
     }
-
+    public static LoveCenter getLoveCenter() {
+        return LoveDispatcher.instance();
+    }
 
 
 

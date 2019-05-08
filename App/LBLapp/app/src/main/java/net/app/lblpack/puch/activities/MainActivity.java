@@ -98,7 +98,7 @@ public class MainActivity extends Activity
         mNavigation.setOnNavigationItemSelectedListener(this);
 
         Glide.with(this)
-                .load(R.drawable.bg_src_morning)
+                .load(R.drawable.default_banner_head)
                 .centerCrop()
                 .into(new ViewTarget<View, GlideDrawable>(mLayAppbar) {
                     @Override
@@ -116,7 +116,7 @@ public class MainActivity extends Activity
         Menu menu = mNavigation.getMenu();
         // 触发首次选中Home
         menu.performIdentifierAction(R.id.action_home, 0);
-
+        mNavigation.setSelectedItemId(R.id.action_home);
         // 初始化头像加载
         mPortrait.setup(Glide.with(this), Account.getUser());
     }

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.WindowManager;
 
 import net.app.lblpack.common.app.Activity;
 import net.app.lblpack.common.app.Fragment;
@@ -17,6 +18,12 @@ public class MessageActivity extends Activity {
     public static final String KEY_RECEIVER_ID = "KEY_RECEIVER_ID";
 
     private String mReceiverId;
+
+    @Override
+    protected void initWidows() {
+        super.initWidows();
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
+    }
 
     /**
      * 通过Session发起聊天

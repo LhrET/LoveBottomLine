@@ -11,7 +11,7 @@ public class Common {
         String REGEX_MOBILE = "[1][3,4,5,7,8][0-9]{9}$";
 
         // 基础的网络请求地址
-        String API_URL = "http://47.100.6.167/lovebottom/api/";
+        String API_URL = "http://101.94.3.17:8080/lovebottom/api/";
 
         // 最大的上传图片大小860kb
         long MAX_UPLOAD_IMAGE_LENGTH = 860 * 1024;

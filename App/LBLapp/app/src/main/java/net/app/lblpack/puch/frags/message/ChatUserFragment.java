@@ -46,7 +46,7 @@ public class ChatUserFragment extends ChatFragment<User>
         super.initWidget(root);
 
         Glide.with(this)
-                .load(R.drawable.default_banner_chat)
+                .load(R.drawable.default_banner_head)
                 .centerCrop()
                 .into(new ViewTarget<CollapsingToolbarLayout, GlideDrawable>(mCollapsingLayout) {
                     @Override

@@ -23,5 +23,9 @@ public interface PersonalContract {
 
         // 设置关注状态
         void setFollowStatus(boolean isFollow);
+
+        void setLoveStatus(boolean isLove);
+        void setHLoveStatus(boolean isLove);
+
     }
 }

@@ -51,6 +51,10 @@ public class PersonalPresenter extends BasePresenter<PersonalContract.View>
         final boolean isSelf = user.getId().equalsIgnoreCase(Account.getUserId());
         // 是否已经关注
         final boolean isFollow = isSelf || user.isFollow();
+
+        final boolean isLove = isSelf || user.isLove();
+        final boolean havelove = isSelf || user.isHaveLove();
+
         // 已经关注同时不是自己才能聊天
         final boolean allowSayHello = isFollow && !isSelf;
 
@@ -63,7 +67,9 @@ public class PersonalPresenter extends BasePresenter<PersonalContract.View>
                     return;
                 view.onLoadDone(user);
                 view.setFollowStatus(isFollow);
+                view.setLoveStatus(isLove);
                 view.allowSayHello(allowSayHello);
+                view.setHLoveStatus(havelove);
             }
         });
     }

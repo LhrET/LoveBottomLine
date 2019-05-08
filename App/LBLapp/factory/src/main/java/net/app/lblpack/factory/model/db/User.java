@@ -47,6 +47,28 @@ public class User extends BaseDbModel<User> implements Author {
     @Column
     private boolean isFollow;
 
+    @Column
+    private boolean isLove;
+
+    @Column
+    private boolean haveLove;
+
+    public boolean isHaveLove() {
+        return haveLove;
+    }
+
+    public void setHaveLove(boolean haveLove) {
+        this.haveLove = haveLove;
+    }
+
+    public boolean isLove() {
+        return isLove;
+    }
+
+    public void setLove(boolean love) {
+        isLove = love;
+    }
+
     // 时间字段
     @Column
     private Date modifyAt;
@@ -148,6 +170,8 @@ public class User extends BaseDbModel<User> implements Author {
                 && follows == user.follows
                 && following == user.following
                 && isFollow == user.isFollow
+                && isLove == user.isLove
+                && haveLove == user.haveLove
                 && Objects.equals(id, user.id)
                 && Objects.equals(name, user.name)
                 && Objects.equals(phone, user.phone)
