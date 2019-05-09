@@ -8,7 +8,7 @@ import net.web.lblpack.push.utils.Hib;
 public class ChallFactory {
     public static Challenge findById(User user) {
         return Hib.query(session -> (Challenge) session
-                .createQuery("from Love where originId=:name")
+                .createQuery("from Challenge where originId=:name")
                 .setParameter("name", user.getId())
                 .uniqueResult());
     }
@@ -20,7 +20,7 @@ public class ChallFactory {
             return love1;
         });
     }
-    public static Challenge save(User origin,User target,boolean startFlag,boolean finishFlag) {
+    public static Challenge save(User origin,User target,boolean startFlag,boolean finishFlag,int day) {
 
         return Hib.query(session -> {
             // 想要操作懒加载的数据，需要重新load一次
@@ -31,10 +31,13 @@ public class ChallFactory {
             // 所有需要添加两条UserFollow数据
             Challenge originFollow = new Challenge();
             originFollow.setOrigin(origin);
+            originFollow.setOriginId(origin.getId());
+            originFollow.setTargetId(target.getId());
             originFollow.setTarget(target);
             // 备注是我对他的备注，他对我默认没有备注
             originFollow.setStartFlag(startFlag);
             originFollow.setFinishFlag(finishFlag);
+            originFollow.setDayNum(day);
 
             // 发起者是他，我是被关注的人的记录
             Challenge targetFollow = new Challenge();
@@ -42,6 +45,7 @@ public class ChallFactory {
             targetFollow.setTarget(origin);
             targetFollow.setStartFlag(startFlag);
             targetFollow.setFinishFlag(finishFlag);
+            targetFollow.setDayNum(day);
 
             // 保存数据库
             session.save(originFollow);

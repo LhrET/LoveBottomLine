@@ -2,15 +2,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/guan_33"
     tools:context="net.app.lblpack.puch.frags.main.ThirtyThreeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:textColor="@color/textPrimary"
-        android:layout_gravity="center"
-        android:gravity="center"
+        android:layout_gravity="bottom"
+        android:textColor="@color/colorPrimary"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Thirty_Three" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:layout_marginBottom="50dp"
+        android:padding="50dp"
+        android:gravity="center"
+        android:text="点击爱心开启恩爱33关"
+        android:textSize="24dp" />
+
+    <ImageButton
+        android:layout_marginEnd="@dimen/len_24"
+        android:id="@+id/start"
+        android:layout_width="@dimen/len_60"
+        android:layout_height="@dimen/len_60"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="180dp"
+        android:background="#00FFFFFF"
+        android:rotation="-25"
+        android:scaleType="fitCenter"
+        android:src="@drawable/aixin" />
+
 
 </FrameLayout>

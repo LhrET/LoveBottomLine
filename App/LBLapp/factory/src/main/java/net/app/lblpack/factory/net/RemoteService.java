@@ -5,12 +5,16 @@ import net.app.lblpack.factory.model.api.RspModel;
 import net.app.lblpack.factory.model.api.account.AccountRspModel;
 import net.app.lblpack.factory.model.api.account.LoginModel;
 import net.app.lblpack.factory.model.api.account.RegisterModel;
+import net.app.lblpack.factory.model.api.message.ChallengeModel;
 import net.app.lblpack.factory.model.api.message.LoveModel;
 import net.app.lblpack.factory.model.api.message.MsgCreateModel;
+import net.app.lblpack.factory.model.api.message.UpdateChallenge;
 import net.app.lblpack.factory.model.api.user.UserUpdateModel;
+import net.app.lblpack.factory.model.card.ChallengeCard;
 import net.app.lblpack.factory.model.card.LoveCard;
 import net.app.lblpack.factory.model.card.MessageCard;
 import net.app.lblpack.factory.model.card.UserCard;
+import net.app.lblpack.factory.model.card.UserChallengeCard;
 
 import java.util.List;
 
@@ -90,7 +94,30 @@ public interface RemoteService {
     @GET("love/get")
     Call<RspModel<LoveCard>> getlove();
 
+    @POST("user/challenge/create")
+    Call<RspModel<UserChallengeCard>> userchallengecreat(@Body UpdateChallenge model);
 
+    // 用户更新的接口
+    @PUT("user/challenge/update")
+    Call<RspModel<UserChallengeCard>> userchallengepdate(@Body UpdateChallenge model);
+
+    // 用户搜索的接口
+    @GET("user/getchallenge/{daySum}")
+    Call<RspModel<UserChallengeCard>> getUserChallengeOne(@Path("daySum") int daySum);
+
+    @GET("user/getlistchallenges")
+    Call<RspModel<List<UserChallengeCard>>> getUserChallengelist();
+
+    @POST("chall/create")
+    Call<RspModel<ChallengeCard>> challengecreat(@Body ChallengeModel model);
+
+    // 用户更新的接口
+    @PUT("chall/update")
+    Call<RspModel<ChallengeCard>> challengeupdate(@Body ChallengeModel model);
+
+    // 用户搜索的接口
+    @GET("chall/get")
+    Call<RspModel<ChallengeCard>> getChallenge();
 
 
 }

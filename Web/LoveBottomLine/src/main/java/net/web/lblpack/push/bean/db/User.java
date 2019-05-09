@@ -26,7 +26,8 @@ public class User implements Principal {
     @GenericGenerator(name = "uuid",strategy = "uuid2")
     @Column(updatable = false,nullable = false)
     private String id;
-    //用户名唯一
+
+
     @Column(nullable = false,length = 128,unique = true)
     private String name;
     @Column(nullable = false,length = 62,unique = true)

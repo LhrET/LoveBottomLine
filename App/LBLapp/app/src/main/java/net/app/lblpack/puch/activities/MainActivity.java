@@ -136,7 +136,8 @@ public class MainActivity extends Activity
         // 如果是group 33
         if (Objects.equals(mNavHelper.getCurrentTab().extra, R.string.title_group)) {
             // 打开群创建界面
-           // GroupCreateActivity.show(this);
+            Intent intent = new Intent(this, HistoryActivity.class);
+            startActivity(intent);
         } else {
             // 如果是其他，都打开添加用户的界面
             SearchActivity.show(this, SearchActivity.TYPE_USER);

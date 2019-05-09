@@ -17,6 +17,8 @@ public class ChallengeModel {
     @Expose
     private boolean finishFlag;
     @Expose
+    private int dayNum;
+    @Expose
     private LocalDateTime createAt;
 
     public String getOriginId() {
@@ -59,8 +61,16 @@ public class ChallengeModel {
         this.createAt = createAt;
     }
 
+    public int getDayNum() {
+        return dayNum;
+    }
+
+    public void setDayNum(int dayNum) {
+        this.dayNum = dayNum;
+    }
 
     public Challenge updateChallenge(Challenge love) {
+        love.setDayNum(dayNum);
         love.setStartFlag(startFlag);
         love.setFinishFlag(finishFlag);
         return love;
@@ -69,6 +79,7 @@ public class ChallengeModel {
     public Challenge updateChallengeC(Challenge love) {
         love.setStartFlag(startFlag);
         love.setFinishFlag(finishFlag);
+        love.setDayNum(dayNum);
         love.setCreateAt(createAt);
         return love;
 

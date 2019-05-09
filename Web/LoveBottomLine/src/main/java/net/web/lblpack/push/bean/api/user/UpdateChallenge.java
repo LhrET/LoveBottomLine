@@ -6,6 +6,7 @@ import net.web.lblpack.push.bean.db.User;
 import net.web.lblpack.push.bean.db.UserChallenge;
 import net.web.lblpack.push.factory.ChallengeFactory;
 import net.web.lblpack.push.factory.UserFactory;
+import net.web.lblpack.push.utils.TextUtil;
 
 import java.time.LocalDateTime;
 
@@ -13,34 +14,30 @@ public class UpdateChallenge {
 
 
     @Expose
-    private boolean startFlag;
-    @Expose
-    private boolean finishFlag;
-    @Expose
     private int daySum;
+    @Expose
+    private String description;
 
-
+    @Expose
+    private String Url;
+    @Expose
+    private String guanka;
     @Expose
     private String sendId;
 
     @Expose
     private String receiveId;
 
-    public boolean isStartFlag() {
-        return startFlag;
+
+    public String getUrl() {
+        return Url;
     }
 
-    public void setStartFlag(boolean startFlag) {
-        this.startFlag = startFlag;
+    public void setUrl(String url) {
+        Url = url;
     }
 
-    public boolean isFinishFlag() {
-        return finishFlag;
-    }
 
-    public void setFinishFlag(boolean finishFlag) {
-        this.finishFlag = finishFlag;
-    }
 
     public int getDaySum() {
         return daySum;
@@ -67,12 +64,32 @@ public class UpdateChallenge {
     }
 
     public UserChallenge updateToUserChallenge(UserChallenge userChallenge) {
-        userChallenge.setStartFlag(startFlag);
-        userChallenge.setFinishFlag(finishFlag);
+
         if (daySum != 0)
             userChallenge.setDaySum(daySum);
-
+        if (!Strings.isNullOrEmpty(Url))
+            userChallenge.setUrl(Url);
+        if (!Strings.isNullOrEmpty(description))
+            userChallenge.setDescription(description);
+        if (!Strings.isNullOrEmpty(guanka))
+            userChallenge.setGuanka(guanka);
         return userChallenge;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getGuanka() {
+        return guanka;
+    }
+
+    public void setGuanka(String guanka) {
+        this.guanka = guanka;
     }
 
     public static boolean check(UpdateChallenge model) {

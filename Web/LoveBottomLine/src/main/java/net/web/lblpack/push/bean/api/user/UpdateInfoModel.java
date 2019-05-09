@@ -10,6 +10,7 @@ import net.web.lblpack.push.bean.db.User;
  * @version 1.0.0
  */
 public class UpdateInfoModel {
+
     @Expose
     private String name;
     @Expose

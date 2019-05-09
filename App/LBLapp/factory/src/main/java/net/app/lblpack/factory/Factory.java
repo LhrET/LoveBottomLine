@@ -10,10 +10,14 @@ import com.raizlabs.android.dbflow.config.FlowManager;
 
 import net.app.lblpack.common.app.Application;
 import net.app.lblpack.factory.data.DataSource;
+import net.app.lblpack.factory.data.message.ChallengeCenter;
+import net.app.lblpack.factory.data.message.ChallengeDispatcher;
 import net.app.lblpack.factory.data.message.LoveCenter;
 import net.app.lblpack.factory.data.message.LoveDispatcher;
 import net.app.lblpack.factory.data.message.MessageCenter;
 import net.app.lblpack.factory.data.message.MessageDispatcher;
+import net.app.lblpack.factory.data.message.UserChallengeCenter;
+import net.app.lblpack.factory.data.message.UserChallengeDispatcher;
 import net.app.lblpack.factory.data.user.UserCenter;
 import net.app.lblpack.factory.data.user.UserDispatcher;
 import net.app.lblpack.factory.model.api.PushModel;
@@ -241,7 +245,12 @@ public class Factory {
     public static LoveCenter getLoveCenter() {
         return LoveDispatcher.instance();
     }
-
+    public static ChallengeCenter getChallengeCenter() {
+        return ChallengeDispatcher.instance();
+    }
+    public static UserChallengeCenter getUserChallengeCenter() {
+        return UserChallengeDispatcher.instance();
+    }
 
 
 }

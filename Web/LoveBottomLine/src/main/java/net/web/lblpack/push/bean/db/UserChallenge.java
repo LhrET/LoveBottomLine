@@ -20,10 +20,29 @@ public class UserChallenge {
     private String id;
 
     @Column
-    private boolean startFlag;
+    private String description;
 
     @Column
-    private boolean finishFlag;
+    private String guanka;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getGuanka() {
+        return guanka;
+    }
+
+    public void setGuanka(String guanka) {
+        this.guanka = guanka;
+    }
+
+    @Column
+    private String Url;
 
     // 消息类型
     @Column(nullable = false)
@@ -40,7 +59,7 @@ public class UserChallenge {
     // 发送者 不为空
     // 多个消息对应一个发送者
     @JoinColumn(name = "sendId")
-    @OneToOne(optional = false)
+    @ManyToOne
     private User sender;
     // 这个字段仅仅只是为了对应sender的数据库字段senderId
     // 不允许手动的更新或者插入
@@ -50,11 +69,20 @@ public class UserChallenge {
 
     // 接收者 可为空
     // 多个消息对应一个接收者
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "receiveId")
     private User receiver;
     @Column(nullable = false,updatable = false,insertable = false)
     private String receiveId;
+
+
+    public String getUrl() {
+        return Url;
+    }
+
+    public void setUrl(String url) {
+        Url = url;
+    }
 
     public String getId() {
         return id;
@@ -62,22 +90,6 @@ public class UserChallenge {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public boolean isStartFlag() {
-        return startFlag;
-    }
-
-    public void setStartFlag(boolean startFlag) {
-        this.startFlag = startFlag;
-    }
-
-    public boolean isFinishFlag() {
-        return finishFlag;
-    }
-
-    public void setFinishFlag(boolean finishFlag) {
-        this.finishFlag = finishFlag;
     }
 
     public int getDaySum() {

@@ -5,6 +5,7 @@
     android:layout_height="wrap_content"
     android:layout_marginBottom="@dimen/len_2"
     android:layout_marginTop="@dimen/len_2"
+    android:background="#B0FFFFFF"
     android:foreground="@drawable/ic_touch_fg"
     android:orientation="horizontal"
     android:paddingBottom="@dimen/len_10"
@@ -52,15 +53,15 @@
         tools:text="Mary Harmon" />
 
     <ImageView
-        android:layout_width="@dimen/len_32"
-        android:layout_height="@dimen/len_32"
+        android:layout_width="@dimen/len_48"
+        android:layout_height="@dimen/len_48"
         android:layout_gravity="end|center_vertical"
         android:layout_marginEnd="@dimen/len_6"
-        android:background="@drawable/ic_touch_bg"
+        android:background="@color/white"
         android:contentDescription="@string/app_name"
         android:padding="@dimen/len_6"
         android:scaleType="fitCenter"
-        android:src="@drawable/ic_chat_bubble"
+        android:src="@drawable/ic_qbt"
         android:tint="@color/textAccent" />
 
 </FrameLayout>

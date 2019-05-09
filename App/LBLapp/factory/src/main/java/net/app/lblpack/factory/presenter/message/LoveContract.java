@@ -6,6 +6,7 @@ import net.app.lblpack.factory.presenter.BaseContract;
 public interface LoveContract {
     interface Presenter extends BaseContract.Presenter {
         // 获取Love信息
+
         Love getLove();
     }
 

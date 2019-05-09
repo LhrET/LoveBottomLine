@@ -34,18 +34,23 @@ public class UserCard {
     // 我与当前User的关系状态，是否已经关注了这个人
     @Expose
     private boolean isFollow;
+    @Expose
+    private boolean isLove;
+    @Expose
+    private boolean haveLove;
 
     // 用户信息最后的更新时间
     @Expose
     private LocalDateTime modifyAt;
 
     public UserCard(final User user) {
-        this(user, false);
+        this(user, false,false,false);
     }
 
-    public UserCard(final User user, boolean isFollow) {
+    public UserCard(final User user, boolean isFollow,boolean isLove,boolean haveLove) {
         this.isFollow = isFollow;
-
+        this.haveLove = haveLove;
+        this.isLove = isLove;
         this.id = user.getId();
         this.name = user.getName();
         this.phone = user.getPhone();
@@ -68,6 +73,21 @@ public class UserCard {
 
     }
 
+    public boolean isHaveLove() {
+        return haveLove;
+    }
+
+    public void setHaveLove(boolean haveLove) {
+        this.haveLove = haveLove;
+    }
+
+    public boolean isLove() {
+        return isLove;
+    }
+
+    public void setLove(boolean love) {
+        isLove = love;
+    }
 
     public String getId() {
         return id;

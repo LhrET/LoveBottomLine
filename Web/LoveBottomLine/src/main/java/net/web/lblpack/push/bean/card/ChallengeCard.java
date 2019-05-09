@@ -17,6 +17,8 @@ public class ChallengeCard {
     @Expose
     private boolean finishFlag;
     @Expose
+    private int dayNum;
+    @Expose
     private LocalDateTime createAt;// 创建时间
 
     public ChallengeCard(Challenge challenge){
@@ -26,6 +28,7 @@ public class ChallengeCard {
         this.finishFlag = challenge.isFinishFlag();
         this.startFlag = challenge.isStartFlag();
         this.createAt = challenge.getCreateAt();
+        this.dayNum = challenge.getDayNum();
     }
 
     public String getId() {
@@ -74,5 +77,13 @@ public class ChallengeCard {
 
     public void setCreateAt(LocalDateTime createAt) {
         this.createAt = createAt;
+    }
+
+    public int getDayNum() {
+        return dayNum;
+    }
+
+    public void setDayNum(int dayNum) {
+        this.dayNum = dayNum;
     }
 }

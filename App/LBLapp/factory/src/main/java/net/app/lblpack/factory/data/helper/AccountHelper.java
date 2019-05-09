@@ -99,7 +99,7 @@ public class AccountHelper {
 
                 // 同步到XML持久化中
                 Account.login(accountRspModel);
-
+                Account.setLove(accountRspModel.isLove());
                 // 判断绑定状态，是否绑定设备
                 if (accountRspModel.isBind()) {
                     // 设置绑定状态为True

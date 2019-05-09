@@ -8,6 +8,12 @@ import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.drawable.GlideDrawable;
+import com.bumptech.glide.request.animation.GlideAnimation;
+import com.bumptech.glide.request.target.ViewTarget;
 
 import net.app.lblpack.common.app.Fragment;
 import net.app.lblpack.common.app.ToolbarActivity;
@@ -60,6 +66,15 @@ public class SearchActivity extends ToolbarActivity {
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.lay_container, fragment)
                 .commit();
+        Glide.with(this)
+                .load(R.drawable.default_banner_head)
+                .centerCrop()
+                .into(new ViewTarget<View, GlideDrawable>(mToolbar) {
+                    @Override
+                    public void onResourceReady(GlideDrawable resource, GlideAnimation<? super GlideDrawable> glideAnimation) {
+                        this.view.setBackground(resource.getCurrent());
+                    }
+                });
 
     }
 

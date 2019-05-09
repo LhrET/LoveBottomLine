@@ -19,6 +19,7 @@ import net.app.lblpack.factory.presenter.contact.FollowPresenter;
 import net.app.lblpack.factory.presenter.search.SearchContract;
 import net.app.lblpack.factory.presenter.search.SearchUserPresenter;
 import net.app.lblpack.puch.R;
+import net.app.lblpack.puch.activities.PersonalActivity;
 import net.app.lblpack.puch.activities.SearchActivity;
 import net.qiujuer.genius.ui.Ui;
 import net.qiujuer.genius.ui.compat.UiCompat;
@@ -131,7 +132,7 @@ public class SearchUserFragment extends PresenterFragment<SearchContract.Present
         @OnClick(R.id.im_portrait)
         void onPortraitClick() {
             // 显示信息
-            //PersonalActivity.show(getContext(), mData.getId());
+            PersonalActivity.show(getContext(), mData.getId());
         }
 
         @OnClick(R.id.im_follow)

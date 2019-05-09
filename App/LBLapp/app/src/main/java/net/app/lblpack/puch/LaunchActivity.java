@@ -11,6 +11,9 @@ import android.util.Property;
 import android.view.View;
 
 import net.app.lblpack.common.app.Activity;
+import net.app.lblpack.factory.data.DataSource;
+import net.app.lblpack.factory.data.helper.UserHelper;
+import net.app.lblpack.factory.model.card.UserCard;
 import net.app.lblpack.factory.persistence.Account;
 import net.app.lblpack.puch.activities.AccountActivity;
 import net.app.lblpack.puch.activities.MainActivity;
@@ -18,7 +21,7 @@ import net.app.lblpack.puch.frags.assist.PermissionsFragment;
 import net.qiujuer.genius.res.Resource;
 import net.qiujuer.genius.ui.compat.UiCompat;
 
-public class LaunchActivity extends Activity {
+public class LaunchActivity extends Activity implements DataSource.Callback<UserCard> {
     // Drawable
     private ColorDrawable mBgDrawable;
 
@@ -35,6 +38,7 @@ public class LaunchActivity extends Activity {
     @Override
     protected void initWidget() {
         super.initWidget();
+        UserHelper.search(Account.getUserId());
 
         // 拿到跟布局
         View root = findViewById(R.id.activity_launch);
@@ -159,4 +163,14 @@ public class LaunchActivity extends Activity {
             return object.mBgDrawable.getColor();
         }
     };
+
+    @Override
+    public void onDataLoaded(UserCard userCard) {
+
+    }
+
+    @Override
+    public void onDataNotAvailable(int strRes) {
+
+    }
 }

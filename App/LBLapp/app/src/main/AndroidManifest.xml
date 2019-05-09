@@ -21,15 +21,17 @@
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:allowBackup"
         tools:targetApi="m">
+        <activity android:name=".activities.HistoryActivity"></activity>
+        <activity android:name=".activities.InputActivity" />
         <activity
             android:name=".activities.PersonalActivity"
             android:label="@string/title_activity_personal"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:windowSoftInputMode="stateHidden|adjustResize"
             android:name=".activities.MessageActivity"
             android:label="@string/title_activity_message"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
             android:name=".activities.SearchActivity"
             android:label="@string/title_activity_search"

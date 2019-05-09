@@ -21,7 +21,8 @@ public class Account {
     private static final String KEY_TOKEN = "KEY_TOKEN";
     private static final String KEY_USER_ID = "KEY_USER_ID";
     private static final String KEY_ACCOUNT = "KEY_ACCOUNT";
-
+    private static final String KEY_LOVE= "KEY_LOVE";
+    private static boolean isLove;
     // 设备的推送Id
     private static String pushId;
     // 设备Id是否已经绑定到了服务器
@@ -48,6 +49,7 @@ public class Account {
                 .putString(KEY_TOKEN, token)
                 .putString(KEY_USER_ID, userId)
                 .putString(KEY_ACCOUNT, account)
+                .putBoolean(KEY_LOVE,isLove)
                 .apply();
     }
 
@@ -59,6 +61,7 @@ public class Account {
                 Context.MODE_PRIVATE);
         pushId = sp.getString(KEY_PUSH_ID, "");
         isBind = sp.getBoolean(KEY_IS_BIND, false);
+        isLove = sp.getBoolean(KEY_LOVE, false);
         token = sp.getString(KEY_TOKEN, "");
         userId = sp.getString(KEY_USER_ID, "");
         account = sp.getString(KEY_ACCOUNT, "");
@@ -126,6 +129,17 @@ public class Account {
      */
     public static void setBind(boolean isBind) {
         Account.isBind = isBind;
+        Account.save(Factory.app());
+    }
+    public static boolean isLove() {
+        return isLove;
+    }
+
+    /**
+     * 设置绑定状态
+     */
+    public static void setLove(boolean isLove) {
+        Account.isLove = isLove;
         Account.save(Factory.app());
     }
 

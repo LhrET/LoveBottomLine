@@ -40,7 +40,6 @@ public class UserHelper {
             @Override
             public void onResponse(Call<RspModel<UserCard>> call, Response<RspModel<UserCard>> response) {
                 RspModel<UserCard> rspModel = response.body();
-                Log.e("success",rspModel.toString());
                 if (rspModel.success()) {
                     UserCard userCard = rspModel.getResult();
                     // 唤起进行保存的操作

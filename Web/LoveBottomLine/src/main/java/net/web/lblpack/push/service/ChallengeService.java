@@ -26,8 +26,7 @@ public class ChallengeService extends BaseService {
         if (!ChallengeModel.check(model)) {
             return ResponseModel.buildParameterError();
         }
-        User user = getSelf();
-        Challenge love = ChallFactory.findById(getSelf());
+        Challenge love = ChallFactory.findById(UserFactory.findById(model.getOriginId()));
         Challenge love1 = ChallFactory.findById(UserFactory.findById(model.getTargetId()));
         if(love == null){
             return ResponseModel.buildCreateError(ResponseModel.ERROR_CREATE_LOVE);
@@ -58,10 +57,11 @@ public class ChallengeService extends BaseService {
         // 拿到我的联系人
         Challenge challenge = ChallFactory.findById(self);
         // 转换为UserCard
-        ChallengeCard love1 = new ChallengeCard(challenge);
+        ChallengeCard love = new ChallengeCard(challenge);
+
 
         // 返回
-        return ResponseModel.buildOk(love1);
+        return ResponseModel.buildOk(love);
     }
     // 注册
     @POST
@@ -74,10 +74,10 @@ public class ChallengeService extends BaseService {
             // 返回参数异常
             return ResponseModel.buildParameterError();
         }
-        User self = getSelf();
-        User target = UserFactory.findById(LoveFactory.findCById(self).getTargetId());
+        User self = UserFactory.findById(model.getOriginId());
+        User target = UserFactory.findById(model.getTargetId());
 
-        Challenge challenge = ChallFactory.save(self,target,model.isStartFlag(),model.isFinishFlag());
+        Challenge challenge = ChallFactory.save(self,target,model.isStartFlag(),model.isFinishFlag(),model.getDayNum());
 
         ChallengeCard challengeCard = new ChallengeCard(challenge);
         return ResponseModel.buildOk(challengeCard);

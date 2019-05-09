@@ -6,6 +6,8 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
+@Entity
+@Table(name = "TB_CHALLENGE")
 public class Challenge {
     @Id
     @PrimaryKeyJoinColumn
@@ -35,6 +37,9 @@ public class Challenge {
 
     @Column
     private boolean finishFlag ;
+
+    @Column
+    private int dayNum = 0;
     //创建时间戳
     @CreationTimestamp
     @Column(nullable = false)
@@ -102,5 +107,13 @@ public class Challenge {
 
     public void setCreateAt(LocalDateTime createAt) {
         this.createAt = createAt;
+    }
+
+    public int getDayNum() {
+        return dayNum;
+    }
+
+    public void setDayNum(int dayNum) {
+        this.dayNum = dayNum;
     }
 }

@@ -23,7 +23,7 @@ public class LoveService extends BaseService {
             return ResponseModel.buildParameterError();
         }
         Love love = LoveFactory.findCById(UserFactory.findById(model.getOriginId()));
-        Love love1 = LoveFactory.findCById(UserFactory.findById(model.getTargetId()));
+        Love love1 = LoveFactory.findCById(UserFactory.findById(love.getTargetId()));
         if(love == null){
             return ResponseModel.buildCreateError(ResponseModel.ERROR_CREATE_LOVE);
         }

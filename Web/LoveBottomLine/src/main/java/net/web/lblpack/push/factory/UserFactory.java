@@ -2,10 +2,12 @@ package net.web.lblpack.push.factory;
 
 import com.google.common.base.Strings;
 import net.web.lblpack.push.bean.db.User;
+import net.web.lblpack.push.bean.db.UserChallenge;
 import net.web.lblpack.push.bean.db.UserFollow;
 import net.web.lblpack.push.utils.Hib;
 import net.web.lblpack.push.utils.TextUtil;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Set;
 import java.util.UUID;
@@ -39,6 +41,14 @@ public class UserFactory {
                 .setParameter("name", name)
                 .uniqueResult());
     }
+    //通过Id查挑战记录
+    public static UserChallenge findCById(User user) {
+        return Hib.query(session -> (UserChallenge) session
+                .createQuery("from UserChallenge where sendId=:name and createAt=:create")
+                .setParameter("name", user.getId())
+                .setParameter("create", LocalDateTime.now())
+                .uniqueResult());
+    }
 
     // 通过Name找到User
     public static User findById(String id) {
@@ -55,7 +65,6 @@ public class UserFactory {
     public static User update(User user) {
         return Hib.query(session -> {
             session.saveOrUpdate(user);
-            System.out.println(user);
 
             return user;
         });
@@ -278,7 +287,6 @@ public class UserFactory {
         });
     }
 
-
     /**
      * 查询两个人是否已经关注
      *
@@ -319,4 +327,7 @@ public class UserFactory {
         });
 
     }
+
+
+
 }

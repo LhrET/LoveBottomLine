@@ -2,8 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_login"
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/bg_login">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -37,17 +37,23 @@
 
             />
     </LinearLayout>
-    <Button
-        android:id="@+id/input"
+    <FrameLayout
+        android:layout_gravity="bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="打卡提交"
-        android:background="#FA80BF"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="60dp"
-        android:layout_gravity="bottom"
-        android:textSize="16dp"
-        android:textColor="#FFFFFF"/>
+        android:layout_marginBottom="@dimen/len_28">
+
+        <net.qiujuer.genius.ui.widget.Button
+            android:id="@+id/btn_input"
+            android:layout_width="@dimen/len_172"
+            android:layout_height="@dimen/len_44"
+            android:layout_gravity="center"
+            android:background="@drawable/sel_btn_bg_black_alpha_44"
+            android:text="打卡提交"
+            android:textColor="@color/white"
+            app:gTouchColor="@color/colorAccentAlpha"
+            app:gTouchCornerRadius="22dp"
+            app:gTouchEffect="ripple" />
+    </FrameLayout>
 
 </FrameLayout>

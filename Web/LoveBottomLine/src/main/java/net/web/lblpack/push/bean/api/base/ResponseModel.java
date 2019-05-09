@@ -24,7 +24,7 @@ public class ResponseModel<M> implements Serializable {
     // 创建用户失败
     public static final int ERROR_CREATE_USER = 3001;
     // 创建群失败
-    public static final int ERROR_CREATE_GROUP = 3002;
+    public static final int ERROR_CREATE_LOVE = 3002;
     // 创建群成员失败
     public static final int ERROR_CREATE_MESSAGE = 3003;
 
@@ -34,7 +34,7 @@ public class ResponseModel<M> implements Serializable {
     public static final int ERROR_PARAMETERS_EXIST_ACCOUNT = 4002;
     // 请求参数错误-已存在名称
     public static final int ERROR_PARAMETERS_EXIST_NAME = 4003;
-
+    public static final int ERROR_PARAMETERS_EXIST_CHALLENGE = 4004;
     // 服务器错误
     public static final int ERROR_SERVICE = 5001;
 
@@ -124,7 +124,9 @@ public class ResponseModel<M> implements Serializable {
     public static <M> ResponseModel<M> buildParameterError() {
         return new ResponseModel<M>(ERROR_PARAMETERS, "Parameters Error.");
     }
-
+    public static <M> ResponseModel<M> buildHaveChallengeError() {
+        return new ResponseModel<M>(ERROR_PARAMETERS_EXIST_CHALLENGE, "Already have this CHALLENGE.");
+    }
     public static <M> ResponseModel<M> buildHaveAccountError() {
         return new ResponseModel<M>(ERROR_PARAMETERS_EXIST_ACCOUNT, "Already have this account.");
     }
@@ -142,7 +144,7 @@ public class ResponseModel<M> implements Serializable {
     }
 
     public static <M> ResponseModel<M> buildNotFoundGroupError(String str) {
-        return new ResponseModel<M>(ERROR_NOT_FOUND_GROUP, str != null ? str : "Not Found Group.");
+        return new ResponseModel<M>(ERROR_NOT_FOUND_GROUP, str != null ? str : "Not Found Challenge.");
     }
 
     public static <M> ResponseModel<M> buildNotFoundGroupMemberError(String str) {

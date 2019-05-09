@@ -16,8 +16,10 @@ import net.app.lblpack.factory.persistence.Account;
 import net.app.lblpack.factory.presenter.message.LoveContract;
 import net.app.lblpack.factory.presenter.message.LovePresenter;
 import net.app.lblpack.puch.R;
+import net.app.lblpack.puch.activities.PersonalActivity;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -32,9 +34,21 @@ public class ActiveFragment extends PresenterFragment<LoveContract.Presenter>
     TextView textView_fenshu;
     @BindView(R.id.txt_active_hidden)
     TextView textView_hidden;
+
+    private Love love;
     public ActiveFragment() {
         // Required empty public constructor
     }
+
+    @OnClick(R.id.im_portrait1)
+    public void onClickProtrait1(){
+        PersonalActivity.show(getContext(), Account.getUserId());
+    }
+    @OnClick(R.id.im_portrait2)
+    public void onClickProtrait2(){
+        PersonalActivity.show(getContext(), love.getTargetId());
+    }
+
 
     @Override
     protected void onFirstInit() {
@@ -71,6 +85,7 @@ public class ActiveFragment extends PresenterFragment<LoveContract.Presenter>
         if(love == null){
             textView_hidden.setVisibility(View.VISIBLE);
         }else {
+            this.love = love;
             User user = UserHelper.findFromLocal(love.getTargetId());
             portraitView2.setup(Glide.with(this), user);
             portraitView1.setup(Glide.with(this), Account.getUser());

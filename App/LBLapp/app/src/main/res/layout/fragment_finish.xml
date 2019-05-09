@@ -2,84 +2,60 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/finish_layout"
     android:background="@drawable/beijing">
-
-    <RelativeLayout
-        android:layout_marginTop="@dimen/len_80"
+    <LinearLayout
+        android:layout_margin="@dimen/len_44"
+        android:background="#A1FFFFFF"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <LinearLayout
-            android:id="@+id/part1"
+        <TextView
+            android:id="@+id/day_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="#A6FFFFFF"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            android:layout_marginBottom="10dp"
-            android:layout_gravity="top"
-            >
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="第几天"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="@color/colorPrimary"
+            android:textSize="34dp"
+            android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/day_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:gravity="center"
-                android:padding="10dp"
-                android:text="第几天"
-                android:textColor="@color/colorPrimary"
-                android:textSize="34dp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/task_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="24dp"
-                android:gravity="center"
-                android:lineSpacingExtra="5dp"
-                android:padding="10dp"
-                android:textColor="@color/colorPrimary"
-                android:text="任务"
-                android:textSize="22dp" />
-        </LinearLayout>
-
-        <LinearLayout
+        <TextView
+            android:id="@+id/task_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="#A6FFFFFF"
-            android:layout_marginTop="12dp"
-            android:layout_marginRight="40dp"
-            android:layout_marginLeft="40dp"
-            android:layout_gravity="bottom"
-            android:layout_below="@id/part1">
+            android:layout_marginBottom="24dp"
+            android:gravity="center"
+            android:lineSpacingExtra="5dp"
+            android:padding="10dp"
+            android:textColor="@color/colorPrimary"
+            android:text="任务"
+            android:textSize="22dp" />
 
-            <ImageView
-                android:id="@+id/picture_imageView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="30dp"
-                android:adjustViewBounds="true"
-                android:maxWidth="220dp"
-                android:maxHeight="220dp"
-                android:src="@drawable/xingdong" />
-            <TextView
-                android:id="@+id/said_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:gravity="center"
-                android:padding="10dp"
-                android:textColor="@color/colorPrimary"
-                android:text="描述"
-                android:textSize="24dp" />
+        <ImageView
+            android:id="@+id/picture_imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:maxWidth="156dp"
+            android:maxHeight="156dp"
+            android:layout_marginBottom="@dimen/len_24"
+            android:src="@drawable/xingdong" />
+        <TextView
+            android:id="@+id/said_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:textColor="@color/colorMyFavourite"
+            android:text="描述"
+            android:textSize="18dp" />
+    </LinearLayout>
 
-        </LinearLayout>
-    </RelativeLayout>
+
 </FrameLayout>

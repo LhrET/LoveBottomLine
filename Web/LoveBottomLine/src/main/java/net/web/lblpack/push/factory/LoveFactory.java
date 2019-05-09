@@ -13,6 +13,13 @@ public class LoveFactory {
                 .setParameter("name", user.getId())
                 .uniqueResult());
     }
+    public static Love findCCById(User user,User user2) {
+        return Hib.query(session -> (Love) session
+                .createQuery("from Love where originId=:name and targetId=:name2")
+                .setParameter("name", user.getId())
+                .setParameter("name2", user2.getId())
+                .uniqueResult());
+    }
 
     public static Love update(Love love1,Love love2) {
         return Hib.query(session -> {

@@ -8,9 +8,9 @@ public class UserChallengeCard {
     private String id;
     private String sendId;
     private String receiveId;
-    String Url;
-    String description;
-    String guanka;
+    private String Url;
+    private String description;
+    private String guanka;
     private int daySum;
     private Date createAt;// 创建时间
 

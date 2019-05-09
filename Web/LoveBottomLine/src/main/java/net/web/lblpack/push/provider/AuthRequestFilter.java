@@ -25,10 +25,12 @@ public class AuthRequestFilter implements ContainerRequestFilter {
     // 实现接口的过滤方法
     @Override
     public void filter(ContainerRequestContext requestContext) throws IOException {
+
+
         // 检查是否是登录注册接口
         String relationPath = ((ContainerRequest) requestContext).getPath(false);
         if (relationPath.startsWith("account/login")
-                || relationPath.startsWith("account/register")) {
+                || relationPath.startsWith("account/register")|| relationPath.startsWith("love/update")|| relationPath.startsWith("chall")|| relationPath.startsWith("user")){
             // 直接走正常逻辑，不做拦截
             return;
         }

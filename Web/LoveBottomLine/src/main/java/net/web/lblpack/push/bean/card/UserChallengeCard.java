@@ -3,6 +3,7 @@ package net.web.lblpack.push.bean.card;
 import com.google.gson.annotations.Expose;
 import net.web.lblpack.push.bean.db.UserChallenge;
 
+import javax.persistence.Column;
 import java.time.LocalDateTime;
 
 public class UserChallengeCard {
@@ -11,14 +12,41 @@ public class UserChallengeCard {
     private String id;
 
     @Expose
-    private boolean startFlag;
-    @Expose
-    private boolean finishFlag;
-    @Expose
     private int daySum;
+    @Expose
+    private String description;
+    @Expose
+    private String guanka;
+    @Expose
+    private String Url;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getGuanka() {
+        return guanka;
+    }
+
+    public void setGuanka(String guanka) {
+        this.guanka = guanka;
+    }
 
     @Expose
     private LocalDateTime createAt = LocalDateTime.now();
+
+
+    public String getUrl() {
+        return Url;
+    }
+
+    public void setUrl(String url) {
+        Url = url;
+    }
 
 
     @Expose
@@ -29,12 +57,13 @@ public class UserChallengeCard {
 
     public UserChallengeCard(UserChallenge userChallenge) {
         this.id = userChallenge.getId();
-        this.startFlag = userChallenge.isStartFlag();
-        this.finishFlag = userChallenge.isFinishFlag();
         this.daySum = userChallenge.getDaySum();
         this.createAt = userChallenge.getCreateAt();
         this.sendId = userChallenge.getSendId();
         this.receiveId = userChallenge.getReceiveId();
+        this.Url = userChallenge.getUrl();
+        this.description = userChallenge.getDescription();
+        this.guanka = userChallenge.getGuanka();
 
     }
 
@@ -46,21 +75,6 @@ public class UserChallengeCard {
         this.id = id;
     }
 
-    public boolean isStartFlag() {
-        return startFlag;
-    }
-
-    public void setStartFlag(boolean startFlag) {
-        this.startFlag = startFlag;
-    }
-
-    public boolean isFinishFlag() {
-        return finishFlag;
-    }
-
-    public void setFinishFlag(boolean finishFlag) {
-        this.finishFlag = finishFlag;
-    }
 
     public int getDaySum() {
         return daySum;
