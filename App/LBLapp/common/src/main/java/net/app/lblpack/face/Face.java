@@ -81,7 +81,7 @@ public class Face {
 
     // 从face-t.zip包解析我们的表情
     private static FaceTab initAssetsFace(Context context) {
-        String faceAsset = "face-t.zip";
+        String faceAsset = "facet.zip";
         // data/data/包名/files/face/ft/*
         String faceCacheDir = String.format("%s/face/tf", context.getFilesDir());
         File faceFolder = new File(faceCacheDir);
@@ -181,7 +181,7 @@ public class Face {
         if (faces.size() == 0)
             return null;
 
-        return new FaceTab("NAME", faces.get(0).preview, faces);
+        return new FaceTab("恩爱每一天", faces.get(0).preview, faces);
     }
 
     // 获取所有的表情

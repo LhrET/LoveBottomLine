@@ -15,7 +15,7 @@
         android:layout_height="260dp"
         android:paddingEnd="@dimen/len_10"
         android:textStyle="italic"
-        android:text="68"
+        android:text="60"
         android:textColor="@color/pink_300"
         android:textSize="99dp"
         android:gravity="center"/>

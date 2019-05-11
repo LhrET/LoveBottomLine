@@ -98,13 +98,18 @@ public class ThirtyThreeFragment extends PresenterFragment<ChallengeContract.Pre
             challenge.setCreateAt(new Date());
         }
         int isNext = isNetxDay(challenge.getCreateAt());
-        if(challenge.isStartFlag()&&isNext>1){
+        if(challenge.isStartFlag()&&isNext>challenge.getDayNum()){
             challenge.setDayNum(isNext);
             if(challenge.isFinishFlag()){
                 challenge.setFinishFlag(false);
+
             }else {
                 Toast.makeText(getActivity(),"昨天任务未完成！",Toast.LENGTH_SHORT).show();
             }
+            ChallengeModel challengeModel = new ChallengeModel(challenge.getOriginId(),
+                    null,challenge.isStartFlag(),challenge.isFinishFlag(),
+                    challenge.getCreateAt(),challenge.getDayNum());
+            ChallengeHelp.update(challengeModel,this);
         }
         if(challenge.isStartFlag()){
             Bundle bundle = new Bundle();

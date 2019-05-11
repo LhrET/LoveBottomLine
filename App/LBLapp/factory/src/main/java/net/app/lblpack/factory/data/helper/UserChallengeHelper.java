@@ -190,7 +190,7 @@ public class UserChallengeHelper {
                 .from(UserChallenge.class)
                 .where(UserChallenge_Table.sendId.eq(Account.getUserId()))
                 .orderBy(UserChallenge_Table.daySum, true)
-                .limit(100)
+                .limit(33)
                 .queryList();
     }
 

@@ -45,16 +45,17 @@ implements UserChallengetContract.View{
     @Override
     protected void initData() {
         super.initData();
-        if(dayNum==33){
+        if(dayNum>=33){
             ImageView img = new ImageView(getActivity());
             img.setImageResource(R.drawable.bg_register);
             new AlertDialog.Builder(getActivity())
                     .setTitle("恭喜完成恩爱33关！！！")
-                    .setMessage("点击历史记录查看33天历史，我们会为您保存长图的哦~")
+                    .setMessage("查看历史纪录，我们会为您保存长图的哦~")
                     .setView(img)
                     .setPositiveButton("确定", null)
                     .show();
             Toast.makeText(getActivity(),"长图已保存成功,请查看相册", Toast.LENGTH_SHORT).show();
+
         }
     }
 

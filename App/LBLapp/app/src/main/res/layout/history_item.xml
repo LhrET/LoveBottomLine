@@ -10,7 +10,7 @@
         android:id="@+id/item_day"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="24dp"
+        android:textSize="18dp"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="32dp"
         android:text="第一天"
@@ -44,15 +44,14 @@
         android:id="@+id/item_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:maxHeight="90dp"
-        android:maxWidth="90dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginLeft="20dp"
+        android:layout_below="@+id/item_day"
+        android:layout_marginStart="@dimen/len_32"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="14dp"
-        android:layout_below="@id/item_line"
         android:adjustViewBounds="true"
-        android:src="@drawable/xingdong"
-        />
+        android:maxWidth="60dp"
+        android:maxHeight="60dp"
+        android:src="@drawable/chuangguan_tu" />
     <TextView
         android:textColor="@color/colorPrimary"
         android:id="@+id/item_said"
@@ -64,6 +63,6 @@
         android:layout_below="@id/item_line"
         android:layout_marginTop="18dp"
         android:layout_marginLeft="20dp"
-        android:textSize="18dp"
+        android:textSize="@dimen/font_16"
         android:gravity="center"/>
 </RelativeLayout>

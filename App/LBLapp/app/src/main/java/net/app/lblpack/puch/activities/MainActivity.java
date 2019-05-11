@@ -126,11 +126,6 @@ public class MainActivity extends Activity
         PersonalActivity.show(this, Account.getUserId());
     }
 
-    @OnClick(R.id.im_search)
-    void onSearchMenuClick() {
-        int type = SearchActivity.TYPE_USER;
-        SearchActivity.show(this, type);
-    }
     @OnClick(R.id.btn_action)
     void onActionClick() {
         // 如果是group 33
@@ -177,7 +172,7 @@ public class MainActivity extends Activity
             // transY 默认为0 则显示
             if (Objects.equals(newTab.extra, R.string.title_group)) {
                 // 群
-                mAction.setImageResource(R.drawable.ic_group_add);
+                mAction.setImageResource(R.drawable.ichistory);
                 rotation = -360;
             } else {
                 // 联系人

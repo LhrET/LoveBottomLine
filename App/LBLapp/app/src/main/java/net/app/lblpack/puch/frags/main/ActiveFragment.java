@@ -42,11 +42,15 @@ public class ActiveFragment extends PresenterFragment<LoveContract.Presenter>
 
     @OnClick(R.id.im_portrait1)
     public void onClickProtrait1(){
-        PersonalActivity.show(getContext(), Account.getUserId());
+        if(Account.isLove()){
+            PersonalActivity.show(getContext(), Account.getUserId());
+        }
     }
     @OnClick(R.id.im_portrait2)
     public void onClickProtrait2(){
-        PersonalActivity.show(getContext(), love.getTargetId());
+        if(Account.isLove()){
+            PersonalActivity.show(getContext(), love.getTargetId());
+        }
     }
 
 

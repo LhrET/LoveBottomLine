@@ -38,7 +38,6 @@ public class ChallengeHelp {
                     // 唤起进行保存的操作
                     Factory.getChallengeCenter().dispatch(userCard);
                     // 返回成功
-                    callback.onDataLoaded(userCard);
                 } else {
                     // 错误情况下进行错误分配
                     Factory.decodeRspCode(rspModel, callback);
